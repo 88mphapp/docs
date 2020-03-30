@@ -1,0 +1,17 @@
+site_name: 88mph Documentation
+theme:
+  name: readthedocs
+site_url: https://88mph.app/docs
+repo_url: https://github.com/88mphapp/docs
+site_description: Documentation for 88mph
+site_author: Bacon Labs
+markdown_extensions:
+  - mdx_math
+  - toc:
+      permalink: "#"
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+nav:
+  - Introduction: index.md
+  - How 88mph works: howitworks.md
+  - Smart contract reference: smartcontract.md
