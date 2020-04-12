@@ -4,6 +4,20 @@ The smart contract source code can be found on [GitHub](https://github.com/Bacon
 
 ## Mainnet deployments
 
+### Aave Pool
+
+- `DInterest`: [0xdf907B483C7e7402555BCb1D8d3878AC3a38F07B](https://etherscan.io/address/0xdf907B483C7e7402555BCb1D8d3878AC3a38F07B)
+- `FeeModel`: [0xf1409a2f1F5f53e46BbAfd334311c80e675a410D](https://etherscan.io/address/0xf1409a2f1F5f53e46BbAfd334311c80e675a410D)
+- `AaveMarket`: [0x5e53247b147D57fAf9825DAbe6e06AE90Bd70BA9](https://etherscan.io/address/0x5e53247b147D57fAf9825DAbe6e06AE90Bd70BA9)
+
+### Compound Pool
+
+- `DInterest`: [0xeBcE73ED303eB97fA8060F276083444B9bBe63c1](https://etherscan.io/address/0xeBcE73ED303eB97fA8060F276083444B9bBe63c1)
+- `FeeModel`: [0xf1409a2f1F5f53e46BbAfd334311c80e675a410D](https://etherscan.io/address/0xf1409a2f1F5f53e46BbAfd334311c80e675a410D)
+- `CompoundERC20Market`: [0xEa7827E66bd41aA0F57557CE3516644dbFb11eaF](https://etherscan.io/address/0xEa7827E66bd41aA0F57557CE3516644dbFb11eaF)
+
+### Compound Pool (Legacy)
+
 - `DInterest`: [0x9b226970cdeAdA0026aEd50D02E4A0dD37C92b6F](https://etherscan.io/address/0x9b226970cdeAdA0026aEd50D02E4A0dD37C92b6F)
 - `FeeModel`: [0xf1409a2f1F5f53e46BbAfd334311c80e675a410D](https://etherscan.io/address/0xf1409a2f1F5f53e46BbAfd334311c80e675a410D)
 - `CompoundERC20Market`: [0xe7326dc7D136c6dF7A4056679A82aBd144631043](https://etherscan.io/address/0xe7326dc7D136c6dF7A4056679A82aBd144631043)
@@ -35,6 +49,12 @@ Withdraws a single deposit for the caller.
 
 - `depositID`: The index of the deposit to be withdrawn in the `userDeposits` array.
 
+##### `function earlyWithdraw(uint256 depositID) external`
+
+Withdraws a single deposit for the caller, before the maturation timestamp. The caller needs to approve DAI to `DInterest` before calling, the amount is equal to `userDeposits[depositID].initialDeficit`.
+
+- `depositID`: The index of the deposit to be withdrawn in the `userDeposits` array.
+
 ##### `function multiDeposit(uint256[] calldata amountList, uint256[] calldata maturationTimestampList) external`
 
 Deposits multiple deposits for the caller. The values at each index in each array will be combined to create a single deposit.
@@ -45,6 +65,12 @@ Deposits multiple deposits for the caller. The values at each index in each arra
 ##### `function multiWithdraw(uint256[] calldata depositIDList) external`
 
 Withdraws multiple deposits for the caller.
+
+- `depositIDList`: The indices of the deposits to be withdrawn in the `userDeposits` array.
+
+##### `function multiEarlyWithdraw(uint256[] calldata depositIDList) external`
+
+Withdraws multiple deposits for the caller, before the maturation timestamp. The caller needs to approve DAI to `DInterest` before calling, the amount is equal to the sum of `userDeposits[depositID].initialDeficit` over all depositIDs in `depositIDList`.
 
 - `depositIDList`: The indices of the deposits to be withdrawn in the `userDeposits` array.
 
@@ -64,7 +90,7 @@ Withdraws a single sponsor deposit for the caller.
 
 #### Read only functions
 
-##### `function userDeposits(address user, uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, bool active)`
+##### `function userDeposits(address user, uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, bool active)`
 
 Returns info about a user deposit.
 
@@ -77,9 +103,10 @@ Returns info about a user deposit.
 
 - `amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
 - `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
+- `initialDeficit`: The initial deficit caused by the deposit. Equal to the upfront interest paid plus the fee.
 - `active`: `true` if the deposit hasn't been withdrawn, `false` otherwise.
 
-##### `function sponsorDeposits(address user, uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, bool active)`
+##### `function sponsorDeposits(address user, uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, bool active)`
 
 Returns info about a sponsor deposit.
 
@@ -92,6 +119,7 @@ Returns info about a sponsor deposit.
 
 - `amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
 - `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
+- `initialDeficit`: The initial deficit caused by the deposit. Equal to zero.
 - `active`: `true` if the deposit hasn't been withdrawn, `false` otherwise.
 
 ##### `function UIRMultiplier() external view returns (uint256)`
