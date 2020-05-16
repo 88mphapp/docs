@@ -47,13 +47,13 @@ Creates a single deposit for the caller.
 
 Withdraws a single deposit for the caller.
 
-- `depositID`: The index of the deposit to be withdrawn in the `userDeposits` array.
+- `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
 
 ##### `function earlyWithdraw(uint256 depositID) external`
 
-Withdraws a single deposit for the caller, before the maturation timestamp. The caller needs to approve DAI to `DInterest` before calling, the amount is equal to `userDeposits[depositID].initialDeficit`.
+Withdraws a single deposit for the caller, before the maturation timestamp. The caller needs to approve DAI to `DInterest` before calling, the amount is equal to `deposits[depositID].initialDeficit`.
 
-- `depositID`: The index of the deposit to be withdrawn in the `userDeposits` array.
+- `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
 
 ##### `function multiDeposit(uint256[] calldata amountList, uint256[] calldata maturationTimestampList) external`
 
@@ -66,60 +66,31 @@ Deposits multiple deposits for the caller. The values at each index in each arra
 
 Withdraws multiple deposits for the caller.
 
-- `depositIDList`: The indices of the deposits to be withdrawn in the `userDeposits` array.
+- `depositIDList`: The indices of the deposits to be withdrawn in the `deposits` array plus 1.
 
 ##### `function multiEarlyWithdraw(uint256[] calldata depositIDList) external`
 
-Withdraws multiple deposits for the caller, before the maturation timestamp. The caller needs to approve DAI to `DInterest` before calling, the amount is equal to the sum of `userDeposits[depositID].initialDeficit` over all depositIDs in `depositIDList`.
+Withdraws multiple deposits for the caller, before the maturation timestamp. The caller needs to approve DAI to `DInterest` before calling, the amount is equal to the sum of `deposits[depositID].initialDeficit` over all depositIDs in `depositIDList`.
 
-- `depositIDList`: The indices of the deposits to be withdrawn in the `userDeposits` array.
-
-##### `function sponsorDeposit(uint256 amount, uint256 maturationTimestamp, string calldata data) external`
-
-Creates a single sponsor deposit for the caller.
-
-- `amount`: The amount of Dai to deposit. The caller should have already approved the contract to spend this much Dai before calling this function. Scaled by \(10^{18}\).
-- `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
-- `data`: An arbitrary string that contains metadata about the sponsor. Will be emitted as part of an event, but won't be put in storage.
-
-##### `function sponsorWithdraw(uint256 depositID) external`
-
-Withdraws a single sponsor deposit for the caller.
-
-- `depositID`: The index of the deposit to be withdrawn in the `sponsorDeposits` array.
+- `depositIDList`: The indices of the deposits to be withdrawn in the `deposits` array plus 1.
 
 #### Read only functions
 
-##### `function userDeposits(address user, uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, bool active)`
+##### `function getDeposit(uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, uint256 initialMoneyMarketPrice, bool active)`
 
-Returns info about a user deposit.
+Returns info about a user deposit. The owner of the deposit is whichever Ethereum account that owns the ERC721 deposit token with id `depositID`.
 
 ###### Inputs
 
 - `user`: The address of the user.
-- `depositID`: The index of the deposit in the `userDeposits` array.
+- `depositID`: The index of the deposit in the `deposits` array.
 
 ###### Returns
 
 - `amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
 - `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
-- `initialDeficit`: The initial deficit caused by the deposit. Equal to the upfront interest paid plus the fee.
-- `active`: `true` if the deposit hasn't been withdrawn, `false` otherwise.
-
-##### `function sponsorDeposits(address user, uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, bool active)`
-
-Returns info about a sponsor deposit.
-
-###### Inputs
-
-- `user`: The address of the sponsor.
-- `depositID`: The index of the deposit in the `sponsorDeposits` array.
-
-###### Returns
-
-- `amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
-- `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
-- `initialDeficit`: The initial deficit caused by the deposit. Equal to zero.
+- `initialDeficit`: The initial deficit caused by the deposit. Equals to the upfront interest paid plus the fee.
+- `initialMoneyMarketPrice`: The value returned by `moneyMarket.price()` at the time of deposit.
 - `active`: `true` if the deposit hasn't been withdrawn, `false` otherwise.
 
 ##### `function UIRMultiplier() external view returns (uint256)`
@@ -129,6 +100,10 @@ Returns the multiplier \(m\) used [here](howitworks.md#technical-details). Scale
 ##### `function MinDepositPeriod() external view returns (uint256)`
 
 Returns the minimum deposit period, in seconds.
+
+##### `function MaxDepositAmount() external view returns (uint256)`
+
+Returns the maximum deposit amount for a single deposit in `stablecoin`. Scaled by \(10^{stablecoinDecimals}\).
 
 ##### `function totalDeposit() external view returns (uint256)`
 
@@ -158,14 +133,27 @@ Returns the current upfront interest rate \(\gamma\) used [here](howitworks.md#t
 
 Returns the average block time 88mph uses in its upfront interest rate calculation, in seconds. Scaled by \(10^{18}\).
 
-##### `function deficit() external view returns (bool isNegative, uint256 deficitAmount)`
+##### `function surplus() external view returns (bool isNegative, uint256 surplusAmount)`
 
-Returns the deficit of the pool.
+Returns the surplus value of the pool over the owed deposits.
 
 ###### Returns
 
-- `isNegative`: Whether the deficit is negative. A negative deficit means there's a surplus.
-- `deficitAmount`: Amount of the pool's deficit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
+- `isNegative`: Whether the surplus is negative. A negative surplus means there's a deficit.
+- `surplusAmount`: Amount of the pool's surplus, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
+
+##### `function surplusOfDeposit(uint256 depositID) external view returns (bool isNegative, uint256 surplusAmount)`
+
+Returns the surplus value of a particular deposit. Does not include funding.
+
+###### Inputs
+
+- `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
+
+###### Returns
+
+- `isNegative`: Whether the surplus is negative. A negative surplus means there's a deficit.
+- `surplusAmount`: Amount of the pool's surplus, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
 
 ### FeeModel
 
@@ -220,3 +208,7 @@ Returns the current interest rate offered by the money market, per second. Scale
 ##### `function totalValue() external view returns (uint256)`
 
 Returns the total value locked in the money market, in terms of the underlying stablecoin. Scaled by \(10^{stablecoinDecimals}\).
+
+##### `function price() external view returns (uint256)`
+
+Returns an index that can be used to compute the interest generated by the money market over a period of time. Specifically, \(interestOverPeriod = depositValueAtBeginningOfPeriod \times \frac{priceAtEndOfPeriod}{priceAtBeginningOfPeriod}\).
