@@ -67,11 +67,19 @@ Deposits multiple deposits for the caller. The values at each index in each arra
 - `amountList`: An array of the amounts of `stablecoin` to deposit. The caller should have already approved the contract to spend this much `stablecoin` before calling this function. Scaled by \(10^{stablecoinDecimals}\).
 - `maturationTimestampList`: An array of the Unix timestamps at and after which the deposits will be able to be withdrawn. In seconds.
 
+###### Input size limit
+
+The maximum recommended number of deposits is 20.
+
 ##### `function multiWithdraw(uint256[] calldata depositIDList) external`
 
 Withdraws multiple deposits for the caller. The caller must own the deposit NFTs with IDs in `depositIDList`.
 
 - `depositIDList`: The indices of the deposits to be withdrawn in the `deposits` array plus 1.
+
+###### Input size limit
+
+The maximum recommended number of deposits is 100.
 
 ###### Important note
 
@@ -82,6 +90,10 @@ Withdrawing may fail if the 88mph pool has failed to generate enough interest fr
 Withdraws multiple deposits for the caller, before the maturation timestamp. The caller must own the deposit NFTs with IDs in `depositIDList`.
 
 - `depositIDList`: The indices of the deposits to be withdrawn in the `deposits` array plus 1.
+
+###### Input size limit
+
+The maximum recommended number of deposits is 50.
 
 ##### `function fundAll() external`
 
