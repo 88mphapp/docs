@@ -218,7 +218,7 @@
 <li><code>toDepositID</code>: Deposits with ID from (not including) <code>lastFundedDepositID</code> to (including) <code>toDepositID</code> will be funded.</li>
 </ul>
 <h4 id="read-only-functions">Read only functions<a class="headerlink" href="#read-only-functions" title="Permanent link">#</a></h4>
-<h5 id="function-getdeposituint256-depositid-external-view-returns-uint256-amount-uint256-maturationtimestamp-uint256-initialdeficit-uint256-initialmoneymarketprice-bool-active"><code>function getDeposit(uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, uint256 initialMoneyMarketPrice, bool active)</code><a class="headerlink" href="#function-getdeposituint256-depositid-external-view-returns-uint256-amount-uint256-maturationtimestamp-uint256-initialdeficit-uint256-initialmoneymarketprice-bool-active" title="Permanent link">#</a></h5>
+<h5 id="function-getdeposituint256-depositid-external-view-returns-uint256-amount-uint256-maturationtimestamp-uint256-initialdeficit-uint256-initialmoneymarketincomeindex-bool-active"><code>function getDeposit(uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, uint256 initialMoneyMarketIncomeIndex, bool active)</code><a class="headerlink" href="#function-getdeposituint256-depositid-external-view-returns-uint256-amount-uint256-maturationtimestamp-uint256-initialdeficit-uint256-initialmoneymarketincomeindex-bool-active" title="Permanent link">#</a></h5>
 <p>Returns info about a user deposit. The owner of the deposit is whichever Ethereum account that owns the ERC721 deposit token with id <code>depositID</code>.</p>
 <h6 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h6>
 <ul>
@@ -229,10 +229,10 @@
 <li><code>amount</code>: The amount of the deposit, in stablecoins. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</li>
 <li><code>maturationTimestamp</code>: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.</li>
 <li><code>initialDeficit</code>: The initial deficit caused by the deposit. Equals to the upfront interest paid plus the fee.</li>
-<li><code>initialMoneyMarketPrice</code>: The value returned by <a href="#function-price-external-view-returns-uint256"><code>moneyMarket.price()</code></a> at the time of deposit.</li>
+<li><code>initialMoneyMarketIncomeIndex</code>: The value returned by <a href="#function-incomeIndex-external-returns-uint256"><code>moneyMarket.incomeIndex()</code></a> at the time of deposit.</li>
 <li><code>active</code>: <code>true</code> if the deposit hasn't been withdrawn, <code>false</code> otherwise.</li>
 </ul>
-<h5 id="function-getfundinguint256-fundingid-external-view-returns-uint256-fromdepositid-uint256-todepositid-uint256-recordedfundeddepositamount-uint256-recordedmoneymarketprice"><code>function getFunding(uint256 fundingID) external view returns (uint256 fromDepositID, uint256 toDepositID, uint256 recordedFundedDepositAmount, uint256 recordedMoneyMarketPrice)</code><a class="headerlink" href="#function-getfundinguint256-fundingid-external-view-returns-uint256-fromdepositid-uint256-todepositid-uint256-recordedfundeddepositamount-uint256-recordedmoneymarketprice" title="Permanent link">#</a></h5>
+<h5 id="function-getfundinguint256-fundingid-external-view-returns-uint256-fromdepositid-uint256-todepositid-uint256-recordedfundeddepositamount-uint256-recordedmoneymarketincomeindex"><code>function getFunding(uint256 fundingID) external view returns (uint256 fromDepositID, uint256 toDepositID, uint256 recordedFundedDepositAmount, uint256 recordedMoneyMarketIncomeIndex)</code><a class="headerlink" href="#function-getfundinguint256-fundingid-external-view-returns-uint256-fromdepositid-uint256-todepositid-uint256-recordedfundeddepositamount-uint256-recordedmoneymarketincomeindex" title="Permanent link">#</a></h5>
 <p>Returns info about a funding. The owner of the funding (and the account who will receive the interests) is whichever Ethereum account that owns the ERC721 funding token with id <code>fundingID</code>.</p>
 <h6 id="inputs_1">Inputs<a class="headerlink" href="#inputs_1" title="Permanent link">#</a></h6>
 <ul>
@@ -243,7 +243,7 @@
 <li><code>fromDepositID</code>: Deposits with ID from (not including) <code>fromDepositID</code> to (including) <code>toDepositID</code> have their deficits funded by this funding instance.</li>
 <li><code>toDepositID</code>: Deposits with ID from (not including) <code>fromDepositID</code> to (including) <code>toDepositID</code> have their deficits funded by this funding instance.</li>
 <li><code>recordedFundedDepositAmount</code>: The current total deposit amount that is generating interest for the owner of this funding instance, in stablecoins. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</li>
-<li><code>recordedMoneyMarketPrice</code>: The value returned by <a href="#function-price-external-view-returns-uint256"><code>moneyMarket.price()</code></a> at the time of the latest withdrawal of a deposit funded by this funding instance. If no funded deposit has been withdrawn yet, this value is equal to the monet market price at the time of the funding instance's creation.</li>
+<li><code>recordedMoneyMarketIncomeIndex</code>: The value returned by <a href="#function-incomeIndex-external-returns-uint256"><code>moneyMarket.incomeIndex()</code></a> at the time of the latest withdrawal of a deposit funded by this funding instance. If no funded deposit has been withdrawn yet, this value is equal to the monet market incomeIndex at the time of the funding instance's creation.</li>
 </ul>
 <h5 id="function-uirmultiplier-external-view-returns-uint256"><code>function UIRMultiplier() external view returns (uint256)</code><a class="headerlink" href="#function-uirmultiplier-external-view-returns-uint256" title="Permanent link">#</a></h5>
 <p>Returns the multiplier <script type="math/tex">m</script> used <a href="../howitworks/#technical-details">here</a>. Scaled by <script type="math/tex">10^{18}</script>.</p>
@@ -341,8 +341,8 @@
 </ul>
 <h5 id="function-totalvalue-external-returns-uint256"><code>function totalValue() external returns (uint256)</code><a class="headerlink" href="#function-totalvalue-external-returns-uint256" title="Permanent link">#</a></h5>
 <p>Returns the total value locked in the money market, in terms of the underlying stablecoin. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</p>
-<h5 id="function-price-external-returns-uint256"><code>function price() external returns (uint256)</code><a class="headerlink" href="#function-price-external-returns-uint256" title="Permanent link">#</a></h5>
-<p>Returns an index that can be used to compute the interest generated by the money market over a period of time. Specifically, <script type="math/tex">interestOverPeriod = depositValueAtBeginningOfPeriod \times \frac{priceAtEndOfPeriod}{priceAtBeginningOfPeriod}</script>.</p>
+<h5 id="function-incomeindex-external-returns-uint256"><code>function incomeIndex() external returns (uint256)</code><a class="headerlink" href="#function-incomeindex-external-returns-uint256" title="Permanent link">#</a></h5>
+<p>Returns an index that can be used to compute the interest generated by the money market over a period of time. Specifically, <script type="math/tex">interestOverPeriod = depositValueAtBeginningOfPeriod \times \frac{incomeIndexAtEndOfPeriod}{incomeIndexAtBeginningOfPeriod}</script>.</p>
               
             </div>
           </div>
