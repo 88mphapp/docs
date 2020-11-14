@@ -6,4 +6,4 @@ This is the documentation of [88mph](https://88mph.app), an fixed-rate yield-gen
 
 You can find the source code of 88mph on [GitHub](https://github.com/88mphapp).
 
-To learn about how and why 88mph can achieve fixed-rate interest, check out [How 88mph works](howitworks.md).
+To learn about how and how 88mph achieves fixed-rate interest, check out [How 88mph works](howitworks.md).

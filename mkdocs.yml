@@ -14,5 +14,6 @@ extra_javascript:
 nav:
   - Introduction: index.md
   - How 88mph works: howitworks.md
+  - MPH tokenomics: mph.md
   - Smart contract addresses: addresses.md
   - Smart contract reference: smartcontract.md
