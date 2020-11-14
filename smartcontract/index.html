@@ -55,19 +55,17 @@
                     <li class="toctree-l1"><a class="reference internal" href="../howitworks/">How 88mph works</a>
                     </li>
                 </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mph/">MPH tokenomics</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../addresses/">Smart contract addresses</a>
+                    </li>
+                </ul>
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Smart contract reference</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#mainnet-deployments">Mainnet deployments</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#aave-pool">Aave Pool</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#compound-pool">Compound Pool</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#compound-pool-legacy">Compound Pool (Legacy)</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#architecture-overview">Architecture overview</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#api-reference">API reference</a>
@@ -135,33 +133,22 @@
             <div class="section">
               
                 <h1 id="smart-contract-reference">Smart contract reference<a class="headerlink" href="#smart-contract-reference" title="Permanent link">#</a></h1>
-<p>The smart contract source code can be found on <a href="https://github.com/Bacon-labs/88mph-contracts">GitHub</a>.</p>
-<h2 id="mainnet-deployments">Mainnet deployments<a class="headerlink" href="#mainnet-deployments" title="Permanent link">#</a></h2>
-<h3 id="aave-pool">Aave Pool<a class="headerlink" href="#aave-pool" title="Permanent link">#</a></h3>
-<ul>
-<li><code>DInterest</code>: <a href="https://etherscan.io/address/0xdf907B483C7e7402555BCb1D8d3878AC3a38F07B">0xdf907B483C7e7402555BCb1D8d3878AC3a38F07B</a></li>
-<li><code>FeeModel</code>: <a href="https://etherscan.io/address/0xf1409a2f1F5f53e46BbAfd334311c80e675a410D">0xf1409a2f1F5f53e46BbAfd334311c80e675a410D</a></li>
-<li><code>AaveMarket</code>: <a href="https://etherscan.io/address/0x5e53247b147D57fAf9825DAbe6e06AE90Bd70BA9">0x5e53247b147D57fAf9825DAbe6e06AE90Bd70BA9</a></li>
-</ul>
-<h3 id="compound-pool">Compound Pool<a class="headerlink" href="#compound-pool" title="Permanent link">#</a></h3>
-<ul>
-<li><code>DInterest</code>: <a href="https://etherscan.io/address/0xeBcE73ED303eB97fA8060F276083444B9bBe63c1">0xeBcE73ED303eB97fA8060F276083444B9bBe63c1</a></li>
-<li><code>FeeModel</code>: <a href="https://etherscan.io/address/0xf1409a2f1F5f53e46BbAfd334311c80e675a410D">0xf1409a2f1F5f53e46BbAfd334311c80e675a410D</a></li>
-<li><code>CompoundERC20Market</code>: <a href="https://etherscan.io/address/0xEa7827E66bd41aA0F57557CE3516644dbFb11eaF">0xEa7827E66bd41aA0F57557CE3516644dbFb11eaF</a></li>
-</ul>
-<h3 id="compound-pool-legacy">Compound Pool (Legacy)<a class="headerlink" href="#compound-pool-legacy" title="Permanent link">#</a></h3>
-<ul>
-<li><code>DInterest</code>: <a href="https://etherscan.io/address/0x9b226970cdeAdA0026aEd50D02E4A0dD37C92b6F">0x9b226970cdeAdA0026aEd50D02E4A0dD37C92b6F</a></li>
-<li><code>FeeModel</code>: <a href="https://etherscan.io/address/0xf1409a2f1F5f53e46BbAfd334311c80e675a410D">0xf1409a2f1F5f53e46BbAfd334311c80e675a410D</a></li>
-<li><code>CompoundERC20Market</code>: <a href="https://etherscan.io/address/0xe7326dc7D136c6dF7A4056679A82aBd144631043">0xe7326dc7D136c6dF7A4056679A82aBd144631043</a></li>
-</ul>
+<p>The smart contract source code can be found on <a href="https://github.com/88mphapp/88mph-contracts">GitHub</a>.</p>
 <h2 id="architecture-overview">Architecture overview<a class="headerlink" href="#architecture-overview" title="Permanent link">#</a></h2>
-<p>88mph consists of 5 smart contracts:</p>
+<p>Each 88mph pool consists of 6 smart contracts:</p>
 <ul>
 <li><code>DInterest</code>: The main smart contract that users interact with. Handles depositing, withdrawing, and keeping track of deposits. Emits all of the events used in the subgraph.</li>
 <li><code>FeeModel</code>: Determines the fee strategy of 88mph, as well as who receives the fees.</li>
-<li><code>MoneyMarket</code>: A wrapper for interacting with money market protocols, and stores all of the user funds. Requires a different one for each money market protocol. As of now we have <code>CompoundERC20Market</code> and <code>AaveMarket</code> written.</li>
-<li><code>NFT</code>: Two non-fungible ERC721 tokens, used for representing ownership of deposits and fundings.</li>
+<li><code>MoneyMarket</code>: A wrapper for interacting with yield-generating protocols, and stores all of the user funds. Requires a different one for each protocol.</li>
+<li><code>InterestOracle</code>: An oracle for the interest rate of the underlying yield-generating protocol.</li>
+<li><code>NFT</code>: Two non-fungible ERC721 tokens, used for representing ownership of deposits and bonds.</li>
+</ul>
+<p>Globally 88mph has the following contracts for handling things related to the MPH token:</p>
+<ul>
+<li><code>MPHToken</code>: The MPH ERC-20 token contract itself.</li>
+<li><code>MPHMinter</code>: Responsible for minting &amp; taking back MPH tokens for depositors &amp; bond buyers.</li>
+<li><code>Dumper</code>: Responsible for accumulating the protocol fees &amp; yield-farming rewards generated by 88mph pools and exchanging them for DAI.</li>
+<li><code>Rewards</code>: The MPH rewards staking contract for distributing the protocol fees &amp; yield-farming rewards.</li>
 </ul>
 <h2 id="api-reference">API reference<a class="headerlink" href="#api-reference" title="Permanent link">#</a></h2>
 <h3 id="dinterest">DInterest<a class="headerlink" href="#dinterest" title="Permanent link">#</a></h3>
@@ -178,7 +165,7 @@
 <li><code>depositID</code>: The index of the deposit to be withdrawn in the <code>deposits</code> array plus 1.</li>
 </ul>
 <h6 id="important-note">Important note<a class="headerlink" href="#important-note" title="Permanent link">#</a></h6>
-<p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference. This is the main risk of depositing into 88mph. If withdrawing actually fails, <code>earlyWithdraw()</code> may be called to get back the deposit minus the upfront interest and fee.</p>
+<p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.</p>
 <h5 id="function-earlywithdrawuint256-depositid-external"><code>function earlyWithdraw(uint256 depositID) external</code><a class="headerlink" href="#function-earlywithdrawuint256-depositid-external" title="Permanent link">#</a></h5>
 <p>Withdraws a single deposit for the caller, before the maturation timestamp. The caller must own the deposit NFT with ID <code>depositID</code>.</p>
 <ul>
@@ -228,9 +215,12 @@
 <ul>
 <li><code>amount</code>: The amount of the deposit, in stablecoins. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</li>
 <li><code>maturationTimestamp</code>: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.</li>
-<li><code>initialDeficit</code>: The initial deficit caused by the deposit. Equals to the upfront interest paid plus the fee.</li>
+<li><code>interestOwed</code>: The initial debt caused by the deposit.</li>
 <li><code>initialMoneyMarketIncomeIndex</code>: The value returned by <a href="#function-incomeIndex-external-returns-uint256"><code>moneyMarket.incomeIndex()</code></a> at the time of deposit.</li>
 <li><code>active</code>: <code>true</code> if the deposit hasn't been withdrawn, <code>false</code> otherwise.</li>
+<li><code>finalSurplusIsNegative</code>: <code>true</code> if at the time of withdrawal the deposit had a negative surplus, <code>false</code> otherwise.</li>
+<li><code>finalSurplusAmount</code>: The amount of surplus/debt of the deposit at the time of withdrawal.</li>
+<li><code>mintMPHAmount</code>: The amount of MPH tokens minted to the user at the time of deposit.</li>
 </ul>
 <h5 id="function-getfundinguint256-fundingid-external-view-returns-uint256-fromdepositid-uint256-todepositid-uint256-recordedfundeddepositamount-uint256-recordedmoneymarketincomeindex"><code>function getFunding(uint256 fundingID) external view returns (uint256 fromDepositID, uint256 toDepositID, uint256 recordedFundedDepositAmount, uint256 recordedMoneyMarketIncomeIndex)</code><a class="headerlink" href="#function-getfundinguint256-fundingid-external-view-returns-uint256-fromdepositid-uint256-todepositid-uint256-recordedfundeddepositamount-uint256-recordedmoneymarketincomeindex" title="Permanent link">#</a></h5>
 <p>Returns info about a funding. The owner of the funding (and the account who will receive the interests) is whichever Ethereum account that owns the ERC721 funding token with id <code>fundingID</code>.</p>
@@ -245,10 +235,12 @@
 <li><code>recordedFundedDepositAmount</code>: The current total deposit amount that is generating interest for the owner of this funding instance, in stablecoins. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</li>
 <li><code>recordedMoneyMarketIncomeIndex</code>: The value returned by <a href="#function-incomeIndex-external-returns-uint256"><code>moneyMarket.incomeIndex()</code></a> at the time of the latest withdrawal of a deposit funded by this funding instance. If no funded deposit has been withdrawn yet, this value is equal to the monet market incomeIndex at the time of the funding instance's creation.</li>
 </ul>
-<h5 id="function-uirmultiplier-external-view-returns-uint256"><code>function UIRMultiplier() external view returns (uint256)</code><a class="headerlink" href="#function-uirmultiplier-external-view-returns-uint256" title="Permanent link">#</a></h5>
-<p>Returns the multiplier <script type="math/tex">m</script> used <a href="../howitworks/#technical-details">here</a>. Scaled by <script type="math/tex">10^{18}</script>.</p>
 <h5 id="function-mindepositperiod-external-view-returns-uint256"><code>function MinDepositPeriod() external view returns (uint256)</code><a class="headerlink" href="#function-mindepositperiod-external-view-returns-uint256" title="Permanent link">#</a></h5>
 <p>Returns the minimum deposit period, in seconds.</p>
+<h5 id="function-maxdepositperiod-external-view-returns-uint256"><code>function MaxDepositPeriod() external view returns (uint256)</code><a class="headerlink" href="#function-maxdepositperiod-external-view-returns-uint256" title="Permanent link">#</a></h5>
+<p>Returns the maximum deposit period, in seconds.</p>
+<h5 id="function-mindepositamount-external-view-returns-uint256"><code>function MinDepositAmount() external view returns (uint256)</code><a class="headerlink" href="#function-mindepositamount-external-view-returns-uint256" title="Permanent link">#</a></h5>
+<p>Returns the minimum deposit amount for a single deposit in <code>stablecoin</code>. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</p>
 <h5 id="function-maxdepositamount-external-view-returns-uint256"><code>function MaxDepositAmount() external view returns (uint256)</code><a class="headerlink" href="#function-maxdepositamount-external-view-returns-uint256" title="Permanent link">#</a></h5>
 <p>Returns the maximum deposit amount for a single deposit in <code>stablecoin</code>. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</p>
 <h5 id="function-totaldeposit-external-view-returns-uint256"><code>function totalDeposit() external view returns (uint256)</code><a class="headerlink" href="#function-totaldeposit-external-view-returns-uint256" title="Permanent link">#</a></h5>
@@ -259,18 +251,21 @@
 <p>Returns the address of the stablecoin used.</p>
 <h5 id="function-feemodel-external-view-returns-address"><code>function feeModel() external view returns (address)</code><a class="headerlink" href="#function-feemodel-external-view-returns-address" title="Permanent link">#</a></h5>
 <p>Returns the address of <code>FeeModel</code>.</p>
+<h5 id="function-interestmodel-external-view-returns-address"><code>function interestModel() external view returns (address)</code><a class="headerlink" href="#function-interestmodel-external-view-returns-address" title="Permanent link">#</a></h5>
+<p>Returns the address of <code>InterestModel</code>.</p>
+<h5 id="function-interestoracle-external-view-returns-address"><code>function interestOracle() external view returns (address)</code><a class="headerlink" href="#function-interestoracle-external-view-returns-address" title="Permanent link">#</a></h5>
+<p>Returns the address of <code>InterestOracle</code>.</p>
 <h5 id="function-depositnft-external-view-returns-address"><code>function depositNFT() external view returns (address)</code><a class="headerlink" href="#function-depositnft-external-view-returns-address" title="Permanent link">#</a></h5>
 <p>Returns the address of the ERC721 deposit token.</p>
 <h5 id="function-fundingnft-external-view-returns-address"><code>function fundingNFT() external view returns (address)</code><a class="headerlink" href="#function-fundingnft-external-view-returns-address" title="Permanent link">#</a></h5>
 <p>Returns the address of ERC721 funding token.</p>
-<h5 id="function-calculateupfrontinterestrateuint256-depositperiodinseconds-external-view-returns-uint256-upfrontinterestrate"><code>function calculateUpfrontInterestRate(uint256 depositPeriodInSeconds) external view returns (uint256 upfrontInterestRate)</code><a class="headerlink" href="#function-calculateupfrontinterestrateuint256-depositperiodinseconds-external-view-returns-uint256-upfrontinterestrate" title="Permanent link">#</a></h5>
-<p>Returns the current upfront interest rate <script type="math/tex">\gamma</script> used <a href="../howitworks/#technical-details">here</a>.</p>
+<h5 id="function-calculateinterestamountuint256-depositamount-uint256-depositperiodinseconds-external-view-returns-uint256-interestamount"><code>function calculateInterestAmount(uint256 depositAmount, uint256 depositPeriodInSeconds) external view returns (uint256 interestAmount)</code><a class="headerlink" href="#function-calculateinterestamountuint256-depositamount-uint256-depositperiodinseconds-external-view-returns-uint256-interestamount" title="Permanent link">#</a></h5>
+<p>Returns the interest amount given the deposit amount and period.</p>
 <h6 id="inputs_2">Inputs<a class="headerlink" href="#inputs_2" title="Permanent link">#</a></h6>
 <ul>
+<li><code>depositAmount</code>: The amount of the deposit in <code>stablecoin</code>. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</li>
 <li><code>depositPeriodInSeconds</code>: The length of the deposit's deposit period, in seconds.</li>
 </ul>
-<h5 id="function-blocktime-external-view-returns-uint256"><code>function blocktime() external view returns (uint256)</code><a class="headerlink" href="#function-blocktime-external-view-returns-uint256" title="Permanent link">#</a></h5>
-<p>Returns the average block time 88mph uses in its upfront interest rate calculation, in seconds. Scaled by <script type="math/tex">10^{18}</script>.</p>
 <h5 id="function-surplus-external-view-returns-bool-isnegative-uint256-surplusamount"><code>function surplus() external view returns (bool isNegative, uint256 surplusAmount)</code><a class="headerlink" href="#function-surplus-external-view-returns-bool-isnegative-uint256-surplusamount" title="Permanent link">#</a></h5>
 <p>Returns the surplus value of the pool over the owed deposits.</p>
 <h6 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">#</a></h6>
@@ -333,12 +328,6 @@
 <li><code>amountInUnderlying</code>: The amount of stablecoins to be withdrawn.</li>
 </ul>
 <h4 id="read-only-functions_2">Read only functions<a class="headerlink" href="#read-only-functions_2" title="Permanent link">#</a></h4>
-<h5 id="function-supplyrateperseconduint256-blocktime-external-view-returns-uint256"><code>function supplyRatePerSecond(uint256 blocktime) external view returns (uint256)</code><a class="headerlink" href="#function-supplyrateperseconduint256-blocktime-external-view-returns-uint256" title="Permanent link">#</a></h5>
-<p>Returns the current interest rate offered by the money market, per second. Scaled by <script type="math/tex">10^{18}</script>.</p>
-<h6 id="inputs_8">Inputs<a class="headerlink" href="#inputs_8" title="Permanent link">#</a></h6>
-<ul>
-<li><code>blocktime</code>: The average block time, in seconds. Scaled by <script type="math/tex">10^{18}</script>.</li>
-</ul>
 <h5 id="function-totalvalue-external-returns-uint256"><code>function totalValue() external returns (uint256)</code><a class="headerlink" href="#function-totalvalue-external-returns-uint256" title="Permanent link">#</a></h5>
 <p>Returns the total value locked in the money market, in terms of the underlying stablecoin. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</p>
 <h5 id="function-incomeindex-external-returns-uint256"><code>function incomeIndex() external returns (uint256)</code><a class="headerlink" href="#function-incomeindex-external-returns-uint256" title="Permanent link">#</a></h5>
@@ -351,7 +340,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../howitworks/" class="btn btn-neutral" title="How 88mph works"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../addresses/" class="btn btn-neutral" title="Smart contract addresses"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -379,7 +368,7 @@
           <a href="https://github.com/88mphapp/docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../howitworks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../addresses/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>
