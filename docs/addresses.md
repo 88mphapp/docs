@@ -1,8 +1,8 @@
-# Smart contract addresses
+# Smart contract addresses (WIP)
 
 ## MPH token & staking
 
-- MPHToken deployed at [0x75A1169E51A3C6336Ef854f76cDE949F999720B1](https://etherscan.io/address/0x75A1169E51A3C6336Ef854f76cDE949F999720B1)
+- MPHToken deployed at [0x8888801af4d980682e47f1a9036e589479e835c5](https://etherscan.io/token/0x8888801af4d980682e47f1a9036e589479e835c5)
 - MPHMinter deployed at [0x2165b3800B17224De39303c240a41064179Db0A6](https://etherscan.io/address/0x2165b3800B17224De39303c240a41064179Db0A6)
 - Rewards2 deployed at [0xbf724db570B9Cf3a8deD903055BcaA863CE07ad7](https://etherscan.io/address/0xbf724db570B9Cf3a8deD903055BcaA863CE07ad7)
 - Dumper2 deployed at [0xEB5b9703502bBb0b3Ce8fdb0F9dCf6f2284508C0](https://etherscan.io/address/0xEB5b9703502bBb0b3Ce8fdb0F9dCf6f2284508C0)
