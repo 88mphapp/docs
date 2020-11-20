@@ -4,7 +4,7 @@
 
 88,000 MPH were taken from the governance treasury and will be distributed via liquidity mining.
 
-It begins at 12:00 pm PT 11/20/2020 and lasts 14 days. Products reboot will start shortly after [See why](https://medium.com/88mphapp/88mph-mphminter-contract-issue-6365dbcacb4f).
+It begins at 12:00 pm PT 11/20/2020 and lasts 14 days. Products reboot will start shortly after. [See why](https://medium.com/88mphapp/88mph-mphminter-contract-issue-6365dbcacb4f).
 
 To participate, follow these steps:
 
