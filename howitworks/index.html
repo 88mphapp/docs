@@ -7,14 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Bacon Labs">
-  <link rel="canonical" href="https://88mph.app/docs/howitworks/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>How 88mph works - 88mph Documentation</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
@@ -25,7 +24,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,7 +35,6 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> 88mph Documentation</a>
         <div role="search">
@@ -47,38 +45,57 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">How 88mph works</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#floating-rate-bonds">Floating-rate bonds</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interoperability-through-non-fungible-tokens-nfts">Interoperability through Non-fungible tokens (NFTs)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#interest-rate-model">Interest rate model</a>
-    </li>
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Introduction</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">How 88mph works</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#how-88mph-works">How 88mph works</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#overview">Overview</a></li>
+        
+            <li><a class="toctree-l3" href="#floating-rate-bonds">Floating-rate bonds</a></li>
+        
+            <li><a class="toctree-l3" href="#interest-rate-model">Interest rate model</a></li>
+        
+            <li><a class="toctree-l3" href="#towards-structured-products">Towards structured products</a></li>
+        
+            <li><a class="toctree-l3" href="#interoperability-through-non-fungible-tokens-nfts">Interoperability through Non-fungible tokens (NFTs)</a></li>
+        
+        </ul>
+    
+
     </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mph/">MPH tokenomics</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../addresses/">Smart contract addresses</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../smartcontract/">Smart contract reference</a>
-                    </li>
-                </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../mph/">MPH tokenomics</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../addresses/">Smart contract addresses</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../smartcontract/">Smart contract reference</a>
+	    </li>
+          
+        </ul>
       </div>
-    </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -106,7 +123,6 @@
       
     </li>
   </ul>
-  
   <hr/>
 </div>
           <div role="main">
@@ -130,17 +146,22 @@
 <h2 id="floating-rate-bonds">Floating-rate bonds<a class="headerlink" href="#floating-rate-bonds" title="Permanent link">#</a></h2>
 <p>Simply doing the above, though, would make 88mph a fairly risky product: if the floating rate APY drops to a very low value and stays there for a long time, deposits made when the floating rate was still high would not by themselves generate enough interest to cover the original interest payouts, and neither would the deposits made after the rates dropped help with this situation. This would cause a pool-wide insolvency event.</p>
 <p>This is why 88mph also offers another mechanic called <strong>floating-rate bonds</strong>. Buying floating-rate bonds allows someone to immediately fill up the debt of one or more deposits using their own money, and in exchange they would receive the yield generated by those deposits. Given that each 88mph deposit would generate enough yield to cover its own deficit as long as the average interest rate during the deposit period stays above 75% of the initial value, a bond buyer would earn a profit as long as the interest rate doesn't drop by more than 25%.</p>
-<p>Not only do floating-rate bonds significantly reduces the risk of depositing into 88mph, it also provides a brand new financial product that allows users to <strong>long the interest rates of lending protocols</strong>. It's similar to some other products that allows people to long and short interest rates (<a href="https://lsdai.market/">LSDai</a>), except 88mph's floating-rate bonds provides a profit even if the interest rate drops (as long as it doesn't drop by more than 25%), and provides even more profits if the interst rate rises. It's like leverage-longing the interest rate!</p>
+<p>Not only do floating-rate bonds significantly reduces the risk of depositing into 88mph, it also provides a brand new financial product that allows users to <strong>long the interest rates of lending protocols</strong>. It's similar to some other products that allows people to long and short interest rates (<a href="https://lsdai.market/">LSDai</a>), except 88mph's floating-rate bonds provides a profit even if the interest rate drops (as long as it doesn't drop by more than 25%), and provides even more profits if the interest rate rises. It's like leverage-longing the interest rate!</p>
+<h2 id="interest-rate-model">Interest rate model<a class="headerlink" href="#interest-rate-model" title="Permanent link">#</a></h2>
+<p>At the moment, 88mph uses a linear model for determining the fixed interest rate offered to depositors. 88mph keeps track of the Exponential Moving Average (EMA) of the underlying yield protocol's APY over roughly a monthly window, and offers 75% of the EMA as the fixed rate.</p>
+<p>We have plans to implement more sophisticated interest rate models in the future that take into account paramters such as the pool surplus/debt, floating-rate volatility, pool total deposit, and so on.</p>
+<h2 id="towards-structured-products">Towards structured products<a class="headerlink" href="#towards-structured-products" title="Permanent link">#</a></h2>
+<p>The first line of products offered by 88mph could allow us or another protocol to build structured products on top of our first layer, <strong>guaranteeing the capital</strong> or a significant portion of such to maturity.</p>
+<p>We could imagine a mechanism that gives rise to this structure by the combination of a fixed income instrument and the use of derivatives, in this case in particular, an option (eg <a href="hegic.co">hegic.co</a>).</p>
+<p>As far as we know, there is nothing like that in DeFi, so it could be a new market segment to explore after stabilizing our first layer of products.</p>
 <h2 id="interoperability-through-non-fungible-tokens-nfts">Interoperability through Non-fungible tokens (NFTs)<a class="headerlink" href="#interoperability-through-non-fungible-tokens-nfts" title="Permanent link">#</a></h2>
 <p>88mph represents deposits and bonds using ERC-721 standard non-fungible tokens. This means that users can transfer them between accounts, buy or sell them on exchanges, put wrappers around them to add more features, and more! The limit is your imagination.</p>
 <p>Some possible use cases:</p>
 <ul>
 <li>Deposited a lot of money into 88mph, but suddenly need cash? And you still want your deposit to generate profit? Well, you can take out a loan on lending platforms like <a href="https://medium.com/@AlexMasmej/introducing-rocket-get-a-loan-against-your-nfts-f67b1b5738f0">RocketNFT</a> using your deposit NFT as collateral, and pay it back once you withdraw your deposit. Magic!</li>
 <li>You can wrap your bond NFT with an ERC20 token to sell it out fractionally.</li>
+<li>Or simply attach a creation of your favorite NFT-artist.</li>
 </ul>
-<h2 id="interest-rate-model">Interest rate model<a class="headerlink" href="#interest-rate-model" title="Permanent link">#</a></h2>
-<p>At the moment, 88mph uses a linear model for determining the fixed interest rate offered to depositors. 88mph keeps track of the Exponential Moving Average (EMA) of the underlying yield protocol's APY over roughly a monthly window, and offers 75% of the EMA as the fixed rate.</p>
-<p>We have plans to implement more sophisticated interest rate models in the future that take into account paramters such as the pool surplus/debt, floating-rate volatility, pool total deposit, and so on.</p>
               
             </div>
           </div>
@@ -163,7 +184,7 @@
     
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -173,7 +194,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/88mphapp/docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -190,11 +211,6 @@
     <script src="../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
 
 </body>
 </html>
