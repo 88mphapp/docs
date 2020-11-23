@@ -1,4 +1,4 @@
-# Smart contract addresses (WIP)
+# Smart contract addresses
 
 ## MPH token & staking
 
