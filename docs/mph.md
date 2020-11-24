@@ -52,7 +52,7 @@ By staking your MPH, you can claim your share of rewards from the 88mph rewards 
 * 88mph protocol fee: 10% is deducted from the interest when a depositor withdraws.
 * Yield-farming rewards: yield-farmed tokens earned from the protocols 88mph is connected to (COMP, etc.).
 
-88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before being allowing us to swap them for $DAI and disitribute the rewards to $MPH stakers. We'll call the function later when there is a sufficient amount of rewards to distribute.
+88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before being allowing us to swap them for $DAI and distribute the rewards to $MPH stakers. We'll call the function later when there is a sufficient amount of rewards to distribute.
 
 The rewards are distributed in DAI. You can claim and unstake when you want.
 
