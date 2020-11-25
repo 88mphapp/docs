@@ -35,7 +35,7 @@ We have plans to implement more sophisticated interest rate models in the future
 
 The first line of products offered by 88mph could allow us or another protocol to build structured products on top of our first layer, **guaranteeing the capital** or a significant portion of such to maturity.
 
-We could imagine a mechanism that gives rise to this structure by the combination of a fixed income instrument and the use of derivatives, in this case in particular, an option (eg [hegic.co](hegic.co)).
+We could imagine a mechanism that gives rise to this structure by the combination of a fixed income instrument and the use of derivatives, in this case in particular, an option (eg [hegic.co](https://www.hegic.co)).
 
 As far as we know, there is nothing like that in DeFi, so it could be a new market segment to explore after stabilizing our first layer of products.
 
