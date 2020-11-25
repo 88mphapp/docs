@@ -12,7 +12,7 @@
 - Governance treasury: [0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD](https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD)
 - Developer wallet: [0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b](https://etherscan.io/address/0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b)
 - Rewards deployed at [0x98df8D9E56b51e4Ea8AA9b57F8A5Df7A044234e1](https://etherscan.io/address/0x98df8D9E56b51e4Ea8AA9b57F8A5Df7A044234e1)
-- Dumper deployed at [0x1Bb67aA336F21cfa5bD328C5930e5202Ed35dDEB](https://etherscan.io/address/0x1Bb67aA336F21cfa5bD328C5930e5202Ed35dDEB)
+- Dumper deployed at [0x5B3C81C86d17786255904c316bFCB38A46146ef8](https://etherscan.io/address/0x5B3C81C86d17786255904c316bFCB38A46146ef8)
 - PercentageFeeModel deployed at [0x11b2F96C0040C0189FD9F6C4405d086B03Bc41AB](https://etherscan.io/address/0x11b2F96C0040C0189FD9F6C4405d086B03Bc41AB)
 - LinearInterestModel deployed at [0xE82698d8D51b36Cabd5897F2AD30d4cF654d7411](https://etherscan.io/address/0xE82698d8D51b36Cabd5897F2AD30d4cF654d7411)
 - MPHIssuanceModel01 deployed at [0x36aD542daDc22078511D64b98aFF818aBD1AC713](https://etherscan.io/address/0x36aD542daDc22078511D64b98aFF818aBD1AC713)

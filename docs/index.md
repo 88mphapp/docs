@@ -2,7 +2,7 @@
 
 <span style="display:block;text-align:center">![88mph-logo](img/88mph-logo-dark.png)</span>
 
-This is the documentation of [88mph](https://88mph.app), an fixed-rate yield-generation protocol.
+This is the documentation of [88mph](https://88mph.app), a fixed-rate yield-generation protocol.
 
 You can find the source code of 88mph on [GitHub](https://github.com/88mphapp).
 
