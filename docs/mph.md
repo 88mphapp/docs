@@ -31,17 +31,18 @@ This reward can also have vesting like depositor rewards, though for now, we don
 
 ## Issuance rate multiplier
 
-The multiplier's unit is MPH per second per stablecoin (of deposit).
+The multiplier’s unit is MPH per second per stablecoin (of deposit).
 
 So a good way to think about what a smart issuance rate multiplier is: given x stablecoins deposit for 1 year, how much MPH should be rewarded?
 
-Eg. for USDC, we could start with something like 10k USDC for 1 year, giving 1 MPH temporary reward, which if the MPH price is ~$100 would be 1% temp APY & 0.1% real APY when maturity is reached.
+We preset the issuance rate at launch with the following parameters, 1.5% inflation of the circulating supply caused by the deposit rewards and 15% inflation of the current total supply. Eg. for $100k deposit x 1 year => 34.5 temporary MPH reward and 3.45 permanent MPH reward.
 
-The issuance rate multiplier can be revisited many time according to the current MPH price. Currently, we can use the governance multisig directly as the contract owner. So instant update available. We can transition to a timelock after the launch's dust has settled.
+We’ll revisit the depositors’ reward shortly after relaunch according to the evolution of the MPH price and the TVL growth in each pool.
 
-The core team's vision is a low issuance for the foreseeable future to don’t wreck liquidity mining program while allowing growth of the deposits TVL in order to generate sustainable profits for MPH stakers.
+Note: for issuance rate updates, we use the governance multisig directly as the contract owner. It allows us more flexibility in these early days. We will transition to a timelock after the dust has settled. The protocol's parameters will be ended over to the community token holders when the governance system will be launched.
 
-Notes: the protocol's parameters will be ended over to the community token holders when the governance system will be launched.
+The core team vision is low issuance for the foreseeable future to don’t wreck the liquidity mining program, and don't dilute too much early adopters, while allowing the growth of the deposits TVL to generate sustainable profits for MPH stakers (so we'll probably incentivize more the Compound pools to harvest more COMP). That's the goal.
+
 
 ## MPH Staking rewards (Revenues sharing)
 
@@ -52,7 +53,7 @@ By staking your MPH, you can claim your share of rewards from the 88mph rewards 
 * 88mph protocol fee: 10% is deducted from the interest when a depositor withdraws.
 * Yield-farming rewards: yield-farmed tokens earned from the protocols 88mph is connected to (COMP, etc.).
 
-88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before being allowing us to swap them for $DAI and distribute the rewards to $MPH stakers. We'll call the function later when there is a sufficient amount of rewards to distribute.
+88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers. We'll call the function later when there is a sufficient amount of rewards to distribute.
 
 The rewards are distributed in DAI. You can claim and unstake when you want.
 
