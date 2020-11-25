@@ -41,7 +41,7 @@ We’ll revisit the depositors’ reward shortly after relaunch according to the
 
 Note: for issuance rate updates, we use the governance multisig directly as the contract owner. It allows us more flexibility in these early days. We will transition to a timelock after the dust has settled. The protocol's parameters will be ended over to the community token holders when the governance system will be launched.
 
-The core team vision is low issuance for the foreseeable future to don’t wreck the liquidity mining program, and don't dilute too much early adopters, while allowing the growth of the deposits TVL to generate sustainable profits for MPH stakers (so we'll probably incentivize more the Compound pools to harvest more COMP). That's the goal.
+The core team vision is low issuance for the foreseeable future to don’t wreck the liquidity mining program, and don't dilute too much early adopters, while allowing the growth of the deposits TVL to generate sustainable profits for MPH stakers (so we'll probably incentivize more the Compound pools to harvest more COMP). That's the goal and it'll be a test & learn process other the coming days/weeks.
 
 
 ## MPH Staking rewards (Revenues sharing)
