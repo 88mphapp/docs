@@ -35,7 +35,7 @@ The multiplier’s unit is MPH per second per stablecoin (of deposit).
 
 So a good way to think about what a smart issuance rate multiplier is: given x stablecoins deposit for 1 year, how much MPH should be rewarded?
 
-We preset the issuance rate at launch with the following parameters, 1.5% inflation of the circulating supply caused by the deposit rewards and 15% inflation of the current total supply. Eg. for $100k deposit x 1 year => 34.5 temporary MPH reward and 3.45 permanent MPH reward.
+We preset the issuance rate at relaunch with a lower issuance rate than v1 launch. Temporary MPH reward are distributed to your address over a 7-day vesting period and you keep your permanent MPH reward at maturity. If early withdraw, then 100% of the reward need to be paid back and they are burnt (not adding to the total supply of MPH).
 
 We’ll revisit the depositors’ reward shortly after relaunch according to the evolution of the MPH price and the TVL growth in each pool.
 
