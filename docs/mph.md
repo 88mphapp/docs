@@ -15,6 +15,13 @@ To participate, follow these steps:
 
 MPH token address: 0x8888801af4d980682e47f1a9036e589479e835c5
 
+# Total supply
+The MPH total supply depends on TVL's growth. Currently, 88mph incentivizes the lenders to deposit their funds in the [fixed-rate APY pools](https://88mph.app/deposits) by rewarding them with new MPH distributed according to an [issuance rate](https://88mph.app/docs/mph/#issuance-rate-multiplier). The upcoming governance will be in charge to monitor the protocol's parameters and decide from where the MPH rewards come from (new issuance and/or [governance treasury](https://88mph.app/docs/mph/#governance-treasury)). So it's up to the MPH holders to decide how to stimulate TVL growth, and by doing so, generate more revenues for [MPH stakers](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing), without diluting too much early adopters. 
+
+Therefore, you can conclude that there isn't a maximum supply but the total supply is in the hand of the MPH holders.
+
+You should also note that the MPH [circulating supply](https://academy.binance.com/en/glossary/circulating-supply) is a more accurate metric to access the current value of the protocol. The reason behind this statement is that the majority of the MPH distributed to lenders must be paid back when the lenders withdraw their principal. They are then sent to the [governance treasury](https://88mph.app/docs/mph/#governance-treasury). In other words, a big percentage of the MPH supply will end up in the governance treasury at any point in the future, excluding this supply from the open market and the [MPH staking](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing) system. More about the benefits of such design could be found on [Placeholder.vc](https://www.placeholder.vc/blog/2020/9/17/stop-burning-tokens-buyback-and-make-instead).
+
 ## Depositor rewards
 
 When a user makes a deposit in an 88mph pool, they will receive newly-minted MPH tokens proportional to \(depositAmount \times depositPeriod\), which will be continuously vested over 7 days. They can then stake this MPH in the MPH rewards pool to earn their share of protocol fees and yield-farming rewards. When the deposit is mature and the user wants to withdraw it, they will have to pay back a proportion of the MPH reward (currently 90%). These MPH tokens will be sent to the 88mph governance treasury, where MPH holders can vote on how to spend them.
@@ -53,9 +60,11 @@ By staking your MPH, you can claim your share of rewards from the 88mph rewards 
 * 88mph protocol fee: 10% is deducted from the interest when a depositor withdraws.
 * Yield-farming rewards: yield-farmed tokens earned from the protocols 88mph is connected to (COMP, etc.).
 
-88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers. We'll call the function later when there is a sufficient amount of rewards to distribute.
+88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers.
 
-The rewards are distributed in DAI. You can claim and unstake when you want.
+**Notes**: The MPH staking rewards APY is currently unknown because no fees were generated so far and the COMP harvested require time to accumulate. The 10% fee on the interest earned by lenders is applied only if someone withdraws his principal at maturity. An early withdrawal enquires no fee because the interest generated stays in the pool. It's not distributed to the original lender. It will generate compounded interests for everyone else staying in the fixed-rate APY pool.
+
+You can claim and unstake when you want.
 
 ## Developer fund
 
