@@ -69,6 +69,13 @@
         
             <li><a class="toctree-l3" href="#initial-issuance">Initial issuance</a></li>
         
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#total-supply">Total supply</a></li>
+    
+        <ul>
+        
             <li><a class="toctree-l3" href="#depositor-rewards">Depositor rewards</a></li>
         
             <li><a class="toctree-l3" href="#bond-buyer-rewards">Bond buyer rewards</a></li>
@@ -144,6 +151,10 @@
 <li>Unstake when you want without penalty.</li>
 </ol>
 <p>MPH token address: 0x8888801af4d980682e47f1a9036e589479e835c5</p>
+<h1 id="total-supply">Total supply<a class="headerlink" href="#total-supply" title="Permanent link">#</a></h1>
+<p>The MPH total supply depends on TVL's growth. Currently, 88mph incentivizes the lenders to deposits their funds in the fixed-rate APY pools by rewarding them with new MPH distributed according to an <a href="https://88mph.app/docs/mph/#issuance-rate-multiplier">issuance rate</a>. The upcoming governance will be in charge to monitor the protocol's parameters and decide from where the MPH rewards come from (new issuance and/or <a href="https://88mph.app/docs/mph/#governance-treasury">governance treasury</a>). So it's up to the MPH holders to decide how to stimulate TVL growth, and by doing so, generate more revenues for <a href="https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing">MPH stakers</a>, without diluting too much early adopters. </p>
+<p>Therefore, you can conclude that there isn't a maximum supply but the total supply is in the hand of the MPH holders.</p>
+<p>You should also note that the MPH <a href="https://academy.binance.com/en/glossary/circulating-supply">circulating supply</a> is a more accurate metric to access the current value of the protocol. The reason behind this statement is that the majority of the MPH distributed to lenders must be paid back when the lenders withdraw their principal. They are then sent to the <a href="https://88mph.app/docs/mph/#governance-treasury">governance treasury</a>. In other words, a big percentage of the MPH supply will end up in the governance treasury at any point in the future, excluding this supply from the open market and the <a href="https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing">MPH staking</a> system. More about the benefits of such design could be found on <a href="https://www.placeholder.vc/blog/2020/9/17/stop-burning-tokens-buyback-and-make-instead">Placeholder.vc</a>.</p>
 <h2 id="depositor-rewards">Depositor rewards<a class="headerlink" href="#depositor-rewards" title="Permanent link">#</a></h2>
 <p>When a user makes a deposit in an 88mph pool, they will receive newly-minted MPH tokens proportional to <script type="math/tex">depositAmount \times depositPeriod</script>, which will be continuously vested over 7 days. They can then stake this MPH in the MPH rewards pool to earn their share of protocol fees and yield-farming rewards. When the deposit is mature and the user wants to withdraw it, they will have to pay back a proportion of the MPH reward (currently 90%). These MPH tokens will be sent to the 88mph governance treasury, where MPH holders can vote on how to spend them.</p>
 <p>This distribution model ensures that existing users will have an amplified influence in the governance process and income sharing, which aligns the interest of the protocol with the interest of the users, rather than the interest of speculators.</p>
@@ -165,8 +176,9 @@
 <li>88mph protocol fee: 10% is deducted from the interest when a depositor withdraws.</li>
 <li>Yield-farming rewards: yield-farmed tokens earned from the protocols 88mph is connected to (COMP, etc.).</li>
 </ul>
-<p>88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers. We'll call the function later when there is a sufficient amount of rewards to distribute.</p>
-<p>The rewards are distributed in DAI. You can claim and unstake when you want.</p>
+<p>88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers.</p>
+<p><strong>Notes</strong>: The MPH staking rewards APY is currently unknown because no fees were generated so far and the COMP harvested require time to accumulate. The 10% fee on the interest earned by lenders is applied only if someone withdraws his principal at maturity. An early withdrawal enquires no fee because the interest generated stays in the pool. It's not distributed to the original lender. It will generate compounded interests for everyone else staying in the fixed-rate APY pool.</p>
+<p>You can claim and unstake when you want.</p>
 <h2 id="developer-fund">Developer fund<a class="headerlink" href="#developer-fund" title="Permanent link">#</a></h2>
 <p>Whenever MPH is minted by new deposits, an additional 10% of the minted amount is minted and sent to the developer fund. These MPH will be used to pay for future development &amp; maintenance of the protocol.</p>
 <p>Development funds: 0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b</p>
