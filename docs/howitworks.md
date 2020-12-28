@@ -43,12 +43,15 @@ We could imagine a mechanism that gives rise to this structure by the combinatio
 As far as we know, there is nothing like that in DeFi, so it could be a new market segment to explore after stabilizing our first layer of products.
 据我们所知，当下DeFi市场还没有出现这种产品组合，因此这种组合有望占据新的市场份额，在稳定我们首支产品线之后继续探索。
 ## Interoperability through Non-fungible tokens (NFTs)
-## 不可互换的NFT（Non-fungible tokens）的协同工作能力
+通过NFTs实现协同工作
 88mph represents deposits and bonds using ERC-721 standard non-fungible tokens. This means that users can transfer them between accounts, buy or sell them on exchanges, put wrappers around them to add more features, and more! The limit is your imagination.
-88mph的存款和债券使用ERC-721标准不可替代币。
+88mph的资金和债券使用ERC-721标准的NFTs，这意味着用户能够直接使用其转账或者进行买卖交易，或者增加更多产品特性包装成其他代币，一切皆有可能！
 Some possible use cases:
-
+一些可实现的玩法：
 - Deposited a lot of money into 88mph, but suddenly need cash? And you still want your deposit to generate profit? Well, you can take out a loan on lending platforms like [RocketNFT](https://medium.com/@AlexMasmej/introducing-rocket-get-a-loan-against-your-nfts-f67b1b5738f0) using your deposit NFT as collateral, and pay it back once you withdraw your deposit. Magic!
+- 如果你已经把一大笔钱存入88mph平台，但是突然急用现金，而且你还想你的存款继续产生收益？可以，你可以在第三方借贷平台（如[RocketNFT](https://medium.com/@AlexMasmej/introducing-rocket-get-a-loan-against-your-nfts-f67b1b5738f0)）进行贷款，使用你存款的NFT作为抵押，在你期满取出存款时再还上这笔贷款。这个绝了！
 - You can wrap your bond NFT with an ERC20 token to sell it out fractionally.
+- 你可以用ERC20代币包装你所持债券的NFT，再分散卖出去。
 - Or simply attach a creation of your favorite NFT-artist.
+- 或者只用你最喜欢的NFT艺术家作品作为你的令牌图案也很棒。
 
