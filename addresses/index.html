@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Bacon Labs">
+  <link rel="canonical" href="https://88mph.app/docs/addresses/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Smart contract addresses - 88mph Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> 88mph Documentation</a>
         <div role="search">
@@ -45,61 +47,58 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Introduction</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../howitworks/">How 88mph works</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mph/">MPH tokenomics</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Smart contract addresses</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#smart-contract-addresses">Smart contract addresses</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#mph-token-staking">MPH token &amp; staking</a></li>
-        
-            <li><a class="toctree-l3" href="#shared">Shared</a></li>
-        
-            <li><a class="toctree-l3" href="#cdai">cDAI</a></li>
-        
-            <li><a class="toctree-l3" href="#cusdc">cUSDC</a></li>
-        
-            <li><a class="toctree-l3" href="#cuni">cUNI</a></li>
-        
-            <li><a class="toctree-l3" href="#ycrv">yCRV</a></li>
-        
-            <li><a class="toctree-l3" href="#ycrvsbtc">ycrvSBTC</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../howitworks/">How 88mph works</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mph/">MPH tokenomics</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Smart contract addresses</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mph-token-staking">MPH token &amp; staking</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#shared">Shared</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cdai">cDAI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cusdc">cUSDC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cuni">cUNI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#yusd">yUSD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ycrvsbtc">ycrvSBTC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#harvest-ycrv">Harvest yCRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aave-v2-usdc">Aave v2 USDC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#harvest-crvhusd">Harvest crvHUSD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#harvest-3crv">Harvest 3CRV</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#harvest-crvhbtc">Harvest crvHBTC</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aave-v2-susd">Aave v2 sUSD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aave-v2-dai">Aave v2 DAI</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../smartcontract/">Smart contract reference</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../smartcontract/">Smart contract reference</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -127,6 +126,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -143,6 +143,7 @@
 <h2 id="shared">Shared<a class="headerlink" href="#shared" title="Permanent link">#</a></h2>
 <ul>
 <li>Governance treasury: <a href="https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD">0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD</a></li>
+<li>Governance timelock: <a href="https://etherscan.io/address/0x4027d912A19E3Cd540FB580aF6A9088eAC738566">0x4027d912A19E3Cd540FB580aF6A9088eAC738566</a></li>
 <li>Developer wallet: <a href="https://etherscan.io/address/0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b">0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b</a></li>
 <li>Rewards deployed at <a href="https://etherscan.io/address/0x98df8D9E56b51e4Ea8AA9b57F8A5Df7A044234e1">0x98df8D9E56b51e4Ea8AA9b57F8A5Df7A044234e1</a></li>
 <li>Dumper deployed at <a href="https://etherscan.io/address/0x5B3C81C86d17786255904c316bFCB38A46146ef8">0x5B3C81C86d17786255904c316bFCB38A46146ef8</a></li>
@@ -159,7 +160,6 @@
 <li>88mph cDAI Pool Deposit deployed at <a href="https://etherscan.io/address/0x9D481E42d9A2b52397262Cdbe76ABf3ca7b52203">0x9D481E42d9A2b52397262Cdbe76ABf3ca7b52203</a></li>
 <li>88mph cDAI Pool Bond deployed at <a href="https://etherscan.io/address/0x4A201E1B6d1ffAdEBE7C873f32a14473169B723B">0x4A201E1B6d1ffAdEBE7C873f32a14473169B723B</a></li>
 <li>88mph cDAI Pool deployed at <a href="https://etherscan.io/address/0x35966201A7724b952455B73A36C8846D8745218e">0x35966201A7724b952455B73A36C8846D8745218e</a></li>
-<li>Transfer 88mph cDAI Pool ownership to <a href="https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD">0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD</a></li>
 </ul>
 <h2 id="cusdc">cUSDC<a class="headerlink" href="#cusdc" title="Permanent link">#</a></h2>
 <ul>
@@ -168,7 +168,6 @@
 <li>88mph cUSDC Pool Deposit deployed at <a href="https://etherscan.io/address/0xE0CFDcCc6CD391DC8de1F7a2B2b5424131a87382">0xE0CFDcCc6CD391DC8de1F7a2B2b5424131a87382</a></li>
 <li>88mph cUSDC Pool Bond deployed at <a href="https://etherscan.io/address/0x5396CFB525C0d166621FA1e22A2A343BC5441c74">0x5396CFB525C0d166621FA1e22A2A343BC5441c74</a></li>
 <li>88mph cUSDC Pool deployed at <a href="https://etherscan.io/address/0x374226dbAa3e44bF3923AfB63f5Fd83928B7e148">0x374226dbAa3e44bF3923AfB63f5Fd83928B7e148</a></li>
-<li>Transfer 88mph cUSDC Pool ownership to <a href="https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD">0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD</a></li>
 </ul>
 <h2 id="cuni">cUNI<a class="headerlink" href="#cuni" title="Permanent link">#</a></h2>
 <ul>
@@ -177,16 +176,14 @@
 <li>88mph cUNI Pool Deposit deployed at <a href="https://etherscan.io/address/0x8AF47056903E5FF85dcf5E024427c3e4A3E5E69E">0x8AF47056903E5FF85dcf5E024427c3e4A3E5E69E</a></li>
 <li>88mph cUNI Pool Bond deployed at <a href="https://etherscan.io/address/0x20e9245821B4c56ae6693bc42d5845b063189a00">0x20e9245821B4c56ae6693bc42d5845b063189a00</a></li>
 <li>88mph cUNI Pool deployed at <a href="https://etherscan.io/address/0x19E10132841616CE4790920d5f94B8571F9b9341">0x19E10132841616CE4790920d5f94B8571F9b9341</a></li>
-<li>Transfer 88mph cUNI Pool ownership to <a href="https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD">0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD</a></li>
 </ul>
-<h2 id="ycrv">yCRV<a class="headerlink" href="#ycrv" title="Permanent link">#</a></h2>
+<h2 id="yusd">yUSD<a class="headerlink" href="#yusd" title="Permanent link">#</a></h2>
 <ul>
 <li>YVaultMarket deployed at <a href="https://etherscan.io/address/0x37315Cdf1d097dfAb8267c0c1Aef6fECaC09d845">0x37315Cdf1d097dfAb8267c0c1Aef6fECaC09d845</a></li>
 <li>EMAOracle deployed at <a href="https://etherscan.io/address/0x7acD00D3e1Cf5018D8530f55f9F19910c3358159">0x7acD00D3e1Cf5018D8530f55f9F19910c3358159</a></li>
 <li>88mph yCRV Pool Deposit deployed at <a href="https://etherscan.io/address/0x7A2e4b5627a07120770b1D64A9ea021E801165c3">0x7A2e4b5627a07120770b1D64A9ea021E801165c3</a></li>
 <li>88mph yCRV Pool Bond deployed at <a href="https://etherscan.io/address/0xD32D197277c3364Ea70da7bAd454278cfdbaAF4c">0xD32D197277c3364Ea70da7bAd454278cfdbaAF4c</a></li>
 <li>88mph yCRV Pool deployed at <a href="https://etherscan.io/address/0xe615e59353f70cA2424Aa0F24F49C639B8E924D3">0xe615e59353f70cA2424Aa0F24F49C639B8E924D3</a></li>
-<li>Transfer 88mph yCRV Pool ownership to <a href="https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD">0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD</a></li>
 </ul>
 <h2 id="ycrvsbtc">ycrvSBTC<a class="headerlink" href="#ycrvsbtc" title="Permanent link">#</a></h2>
 <ul>
@@ -195,7 +192,63 @@
 <li>88mph crvSBTC Pool Deposit deployed at <a href="https://etherscan.io/address/0xcc2f73fC7C8ebDfB3f9de9F7Ac16E53F9Aaf3aBD">0xcc2f73fC7C8ebDfB3f9de9F7Ac16E53F9Aaf3aBD</a></li>
 <li>88mph crvSBTC Pool Bond deployed at <a href="https://etherscan.io/address/0x073A4324A168D8Dc76596FB50920593092866A3c">0x073A4324A168D8Dc76596FB50920593092866A3c</a></li>
 <li>88mph crvSBTC Pool deployed at <a href="https://etherscan.io/address/0x681Aaa7CF3F7E1f110842f0149bA8A4AF53Ef2Fd">0x681Aaa7CF3F7E1f110842f0149bA8A4AF53Ef2Fd</a></li>
-<li>Transfer 88mph crvSBTC Pool ownership to <a href="https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD">0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD</a></li>
+</ul>
+<h2 id="harvest-ycrv">Harvest yCRV<a class="headerlink" href="#harvest-ycrv" title="Permanent link">#</a></h2>
+<ul>
+<li>HarvestMarket deployed at <a href="https://etherscan.io/address/0xD4AA5cC7Eb7f471F44bb744F518C5F3d937cc403">0xD4AA5cC7Eb7f471F44bb744F518C5F3d937cc403</a></li>
+<li>PercentageFeeModel deployed at <a href="https://etherscan.io/address/0xD817Ec04440c51Ec9B34B9625357e308b6A06348">0xD817Ec04440c51Ec9B34B9625357e308b6A06348</a></li>
+<li>EMAOracle deployed at <a href="https://etherscan.io/address/0x322C4F9A477f99b3AEc04dE27c8d97FddaD34309">0x322C4F9A477f99b3AEc04dE27c8d97FddaD34309</a></li>
+<li>88mph Harvest yCRV Pool Deposit deployed at <a href="https://etherscan.io/address/0xF1Ae2f6991B7255d3B5266e6c56333858b3ebDD6">0xF1Ae2f6991B7255d3B5266e6c56333858b3ebDD6</a></li>
+<li>88mph Harvest yCRV Pool Bond deployed at <a href="https://etherscan.io/address/0x57597c75D9f6faecb1Aa08eE6a324c48E55704E4">0x57597c75D9f6faecb1Aa08eE6a324c48E55704E4</a></li>
+<li>88mph Harvest yCRV Pool deployed at <a href="https://etherscan.io/address/0x23Fa6b36E870ca5753853538D17C3ca7f5269e84">0x23Fa6b36E870ca5753853538D17C3ca7f5269e84</a></li>
+</ul>
+<h2 id="aave-v2-usdc">Aave v2 USDC<a class="headerlink" href="#aave-v2-usdc" title="Permanent link">#</a></h2>
+<ul>
+<li>AaveMarket deployed at <a href="https://etherscan.io/address/0xB558fD7F1927CeB334bf661acc5C6a11C103fc91">0xB558fD7F1927CeB334bf661acc5C6a11C103fc91</a></li>
+<li>EMAOracle deployed at <a href="https://etherscan.io/address/0xdde39fDd51a4783685622984b4c5E757Db6beCb0">0xdde39fDd51a4783685622984b4c5E757Db6beCb0</a></li>
+<li>88mph aUSDC Pool Deposit deployed at <a href="https://etherscan.io/address/0xdaA6BD333c83362579D9621954e9451E319D09ea">0xdaA6BD333c83362579D9621954e9451E319D09ea</a></li>
+<li>88mph aUSDC Pool Bond deployed at <a href="https://etherscan.io/address/0x9C4beC382195a4CCE7CfcD18813b3F8Da1aA162B">0x9C4beC382195a4CCE7CfcD18813b3F8Da1aA162B</a></li>
+<li>88mph aUSDC Pool deployed at <a href="https://etherscan.io/address/0xe8C52367b81113ED32bb276184e521C2fbE9393A">0xe8C52367b81113ED32bb276184e521C2fbE9393A</a></li>
+</ul>
+<h2 id="harvest-crvhusd">Harvest crvHUSD<a class="headerlink" href="#harvest-crvhusd" title="Permanent link">#</a></h2>
+<ul>
+<li>HarvestMarket deployed at 0x095cCFeDF134D20a033eeA5ab124C03777e8B0B0</li>
+<li>EMAOracle deployed at 0x64eC20abf1760a9D8a2DF69a1a10D2Ee76D7675c</li>
+<li>88mph Harvest crvHUSD Pool Deposit deployed at 0xEE49eCECa7853104A2Ac68FafF8568598F8AF226</li>
+<li>88mph Harvest crvHUSD Pool Bond deployed at 0x6E3e1AB141F20FD89856677F1Ea2366C6A6aB326</li>
+<li>88mph Harvest crvHUSD Pool deployed at 0xb1ABAac351e06d40441CF2CD97F6f0098e6473F2</li>
+</ul>
+<h2 id="harvest-3crv">Harvest 3CRV<a class="headerlink" href="#harvest-3crv" title="Permanent link">#</a></h2>
+<ul>
+<li>HarvestMarket deployed at 0x68c16B704567F23a59615Fd7dc38ebE9E6768a1F</li>
+<li>EMAOracle deployed at 0xCf208972255B9f21B71f7ca2B0b4Df93Ca006150</li>
+<li>88mph Harvest 3CRV Pool Deposit deployed at 0xeC5B08D6113A98EDb872fA2D8edfA9F2472b823c</li>
+<li>88mph Harvest 3CRV Pool Bond deployed at 0x5421eA9A76f116B283385a82fC50b64Cf2121A64</li>
+<li>88mph Harvest 3CRV Pool deployed at 0x2F3EFD1a90a2336ab8fa1B9060380DC37361Ca55</li>
+</ul>
+<h2 id="harvest-crvhbtc">Harvest crvHBTC<a class="headerlink" href="#harvest-crvhbtc" title="Permanent link">#</a></h2>
+<ul>
+<li>HarvestMarket deployed at 0xF34c3AEA5261864B40b8a5aFd3bE8d9AABdD96f9</li>
+<li>EMAOracle deployed at 0x8fB81eB0ee694089Bfe9b58200287cA30422E2B3</li>
+<li>88mph Harvest crvHBTC Pool Deposit deployed at 0x75e2ADA00724e30bF9A19F2565aBF40608B12697</li>
+<li>88mph Harvest crvHBTC Pool Bond deployed at 0x18d1AE63b388a6581CdF8a9b7336F74bF2e75532</li>
+<li>88mph Harvest crvHBTC Pool deployed at 0x3f5611F7762cc39FC11E10C864ae38526f650e9D</li>
+</ul>
+<h2 id="aave-v2-susd">Aave v2 sUSD<a class="headerlink" href="#aave-v2-susd" title="Permanent link">#</a></h2>
+<ul>
+<li>AaveMarket deployed at 0x473cA701B5279C3F0d54C059d8c29B8ad470B44D</li>
+<li>EMAOracle deployed at 0xF38cA0CFFc53A6B6C62c2bE87967fcc13e807751</li>
+<li>88mph aSUSD Pool Deposit deployed at 0x38E5bE1EcE9407F7619d6147fE64B29f6a732650</li>
+<li>88mph aSUSD Pool Bond deployed at 0x2C0869bAC0a95a5ca7D48e14570A57171aefC252</li>
+<li>88mph aSUSD Pool deployed at 0x6712BAab01FA2dc7bE6635746Ec2Da6F8Bd73e71</li>
+</ul>
+<h2 id="aave-v2-dai">Aave v2 DAI<a class="headerlink" href="#aave-v2-dai" title="Permanent link">#</a></h2>
+<ul>
+<li>AaveMarket deployed at 0xd9d2E415C43c490954b3904b0fE3083147aAb351</li>
+<li>EMAOracle deployed at 0xBD9f5F4E2382Fa3686caB4E2800f6f9Bd41e7709</li>
+<li>88mph aDAI Pool Deposit deployed at 0xDBd226Cd2Bbfed00B448c9DB426B749b4600C18d</li>
+<li>88mph aDAI Pool Bond deployed at 0x461D94044027c7113812C2167EFd38F12d7E9d66</li>
+<li>88mph aDAI Pool deployed at 0x7222A088bD7268cbB0b188f10d136AFcF399EF71</li>
 </ul>
               
             </div>
@@ -219,7 +272,7 @@
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -229,7 +282,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/88mphapp/docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -246,6 +299,11 @@
     <script src="../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

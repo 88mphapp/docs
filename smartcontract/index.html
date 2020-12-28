@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Bacon Labs">
+  <link rel="canonical" href="https://88mph.app/docs/smartcontract/">
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Smart contract reference - 88mph Documentation</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,7 +25,7 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> 88mph Documentation</a>
         <div role="search">
@@ -45,51 +47,58 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Introduction</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../howitworks/">How 88mph works</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../mph/">MPH tokenomics</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../addresses/">Smart contract addresses</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Smart contract reference</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#smart-contract-reference">Smart contract reference</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../howitworks/">How 88mph works</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mph/">MPH tokenomics</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../addresses/">Smart contract addresses</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Smart contract reference</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#architecture-overview">Architecture overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#api-reference">API reference</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#architecture-overview">Architecture overview</a></li>
-        
-            <li><a class="toctree-l3" href="#api-reference">API reference</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#dinterest">DInterest</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#state-changing-functions">State changing functions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#read-only-functions">Read only functions</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#feemodel">FeeModel</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#read-only-functions_1">Read only functions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#moneymarket">MoneyMarket</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#state-changing-functions_1">State changing functions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#read-only-functions_2">Read only functions</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
     </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -117,6 +126,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -149,17 +159,19 @@
 <li><code>amount</code>: The amount of <code>stablecoin</code> to deposit. The caller should have already approved the contract to spend this much <code>stablecoin</code> before calling this function. Scaled by <script type="math/tex">10^{stablecoinDecimals}</script>.</li>
 <li><code>maturationTimestamp</code>: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.</li>
 </ul>
-<h5 id="function-withdrawuint256-depositid-external"><code>function withdraw(uint256 depositID) external</code><a class="headerlink" href="#function-withdrawuint256-depositid-external" title="Permanent link">#</a></h5>
+<h5 id="function-withdrawuint256-depositid-uint256-fundingid-external"><code>function withdraw(uint256 depositID, uint256 fundingID) external</code><a class="headerlink" href="#function-withdrawuint256-depositid-uint256-fundingid-external" title="Permanent link">#</a></h5>
 <p>Withdraws a single deposit for the caller. The caller must own the deposit NFT with ID <code>depositID</code>.</p>
 <ul>
 <li><code>depositID</code>: The index of the deposit to be withdrawn in the <code>deposits</code> array plus 1.</li>
+<li><code>fundingID</code>: The index of the funding object that funded the deposit's debt in the <code>fundingList</code> array plus 1. It can be found using our <a href="https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph">subgraph</a>.</li>
 </ul>
 <h6 id="important-note">Important note<a class="headerlink" href="#important-note" title="Permanent link">#</a></h6>
 <p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.</p>
-<h5 id="function-earlywithdrawuint256-depositid-external"><code>function earlyWithdraw(uint256 depositID) external</code><a class="headerlink" href="#function-earlywithdrawuint256-depositid-external" title="Permanent link">#</a></h5>
+<h5 id="function-earlywithdrawuint256-depositid-uint256-fundingid-external"><code>function earlyWithdraw(uint256 depositID, uint256 fundingID) external</code><a class="headerlink" href="#function-earlywithdrawuint256-depositid-uint256-fundingid-external" title="Permanent link">#</a></h5>
 <p>Withdraws a single deposit for the caller, before the maturation timestamp. The caller must own the deposit NFT with ID <code>depositID</code>.</p>
 <ul>
 <li><code>depositID</code>: The index of the deposit to be withdrawn in the <code>deposits</code> array plus 1.</li>
+<li><code>fundingID</code>: The index of the funding object that funded the deposit's debt in the <code>fundingList</code> array plus 1. It can be found using our <a href="https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph">subgraph</a>.</li>
 </ul>
 <h5 id="function-multideposituint256-calldata-amountlist-uint256-calldata-maturationtimestamplist-external"><code>function multiDeposit(uint256[] calldata amountList, uint256[] calldata maturationTimestampList) external</code><a class="headerlink" href="#function-multideposituint256-calldata-amountlist-uint256-calldata-maturationtimestamplist-external" title="Permanent link">#</a></h5>
 <p>Deposits multiple deposits for the caller. The values at each index in each array will be combined to create a single deposit.</p>
@@ -169,19 +181,21 @@
 </ul>
 <h6 id="input-size-limit">Input size limit<a class="headerlink" href="#input-size-limit" title="Permanent link">#</a></h6>
 <p>The maximum recommended number of deposits is 20.</p>
-<h5 id="function-multiwithdrawuint256-calldata-depositidlist-external"><code>function multiWithdraw(uint256[] calldata depositIDList) external</code><a class="headerlink" href="#function-multiwithdrawuint256-calldata-depositidlist-external" title="Permanent link">#</a></h5>
+<h5 id="function-multiwithdrawuint256-calldata-depositidlist-uint256-calldata-fundingidlist-external"><code>function multiWithdraw(uint256[] calldata depositIDList, uint256[] calldata fundingIDList) external</code><a class="headerlink" href="#function-multiwithdrawuint256-calldata-depositidlist-uint256-calldata-fundingidlist-external" title="Permanent link">#</a></h5>
 <p>Withdraws multiple deposits for the caller. The caller must own the deposit NFTs with IDs in <code>depositIDList</code>.</p>
 <ul>
 <li><code>depositIDList</code>: The indices of the deposits to be withdrawn in the <code>deposits</code> array plus 1.</li>
+<li><code>fundingIDList</code>:  The indices of the funding objects that funded the deposit's debt in the <code>fundingList</code> array plus 1. It can be found using our <a href="https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph">subgraph</a>.</li>
 </ul>
 <h6 id="input-size-limit_1">Input size limit<a class="headerlink" href="#input-size-limit_1" title="Permanent link">#</a></h6>
 <p>The maximum recommended number of deposits is 100.</p>
 <h6 id="important-note_1">Important note<a class="headerlink" href="#important-note_1" title="Permanent link">#</a></h6>
 <p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference. This is the main risk of depositing into 88mph. If withdrawing actually fails, <code>earlyWithdraw()</code> may be called to get back the deposit minus the upfront interest and fee.</p>
-<h5 id="function-multiearlywithdrawuint256-calldata-depositidlist-external"><code>function multiEarlyWithdraw(uint256[] calldata depositIDList) external</code><a class="headerlink" href="#function-multiearlywithdrawuint256-calldata-depositidlist-external" title="Permanent link">#</a></h5>
+<h5 id="function-multiearlywithdrawuint256-calldata-depositidlist-uint256-calldata-fundingidlist-external"><code>function multiEarlyWithdraw(uint256[] calldata depositIDList, uint256[] calldata fundingIDList) external</code><a class="headerlink" href="#function-multiearlywithdrawuint256-calldata-depositidlist-uint256-calldata-fundingidlist-external" title="Permanent link">#</a></h5>
 <p>Withdraws multiple deposits for the caller, before the maturation timestamp. The caller must own the deposit NFTs with IDs in <code>depositIDList</code>.</p>
 <ul>
 <li><code>depositIDList</code>: The indices of the deposits to be withdrawn in the <code>deposits</code> array plus 1.</li>
+<li><code>fundingIDList</code>:  The indices of the funding objects that funded the deposit's debt in the <code>fundingList</code> array plus 1. It can be found using our <a href="https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph">subgraph</a>.</li>
 </ul>
 <h6 id="input-size-limit_2">Input size limit<a class="headerlink" href="#input-size-limit_2" title="Permanent link">#</a></h6>
 <p>The maximum recommended number of deposits is 50.</p>
@@ -342,7 +356,7 @@
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -352,7 +366,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
           <a href="https://github.com/88mphapp/docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
@@ -367,6 +381,11 @@
     <script src="../js/theme.js" defer></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
