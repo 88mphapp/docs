@@ -1,20 +1,13 @@
 # MPH tokenomics
-
-## Initial issuance
+# MPH 代币经济学
 
 An initial supply of 88,000 MPH were minted and will be distributed via liquidity mining.
-
-It begins at 12:00 pm PT 11/20/2020 and lasts 14 days.
-
-To participate, follow these steps:
-
-1. Deposit into an 88mph fixed-rate APY pool. This will give you some upfront MPH.
-2. Provide liquidity to [the MPH-ETH Uniswap pair](https://info.uniswap.org/pair/0x4d96369002fc5b9687ee924d458a7e5baa5df34e)
-3. Stake the Uniswap LP token [here](https://88mph.app/farming)
-4. Unstake when you want without penalty.
+MPH是我们平台的代币，我们的首次铸币量为88000 MPH，通过流动性挖矿的方式分发给用户。
+It begins at 12:00 pm PT 11/20/20 and lasts 14 days.
+初次发行始于太平洋时间2020年11月20日中午12：00（即北京时间2020年11月21日凌晨4：00），共持续14天。
 
 MPH token address: 0x8888801af4d980682e47f1a9036e589479e835c5
-
+MPH代币合约地址：0x8888801af4d980682e47f1a9036e589479e835c5
 # Total supply
 The MPH total supply depends on TVL's growth. Currently, 88mph incentivizes the lenders to deposit their funds in the [fixed-rate APY pools](https://88mph.app/deposits) by rewarding them with new MPH distributed according to an [issuance rate](https://88mph.app/docs/mph/#issuance-rate-multiplier). The upcoming governance will be in charge to monitor the protocol's parameters and decide from where the MPH rewards come from (new issuance and/or [governance treasury](https://88mph.app/docs/mph/#governance-treasury)). So it's up to the MPH holders to decide how to stimulate TVL growth, and by doing so, generate more revenues for [MPH stakers](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing), without diluting too much early adopters. 
 
