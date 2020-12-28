@@ -76,3 +76,43 @@
 - 88mph aUSDC Pool Deposit deployed at [0xdaA6BD333c83362579D9621954e9451E319D09ea](https://etherscan.io/address/0xdaA6BD333c83362579D9621954e9451E319D09ea)
 - 88mph aUSDC Pool Bond deployed at [0x9C4beC382195a4CCE7CfcD18813b3F8Da1aA162B](https://etherscan.io/address/0x9C4beC382195a4CCE7CfcD18813b3F8Da1aA162B)
 - 88mph aUSDC Pool deployed at [0xe8C52367b81113ED32bb276184e521C2fbE9393A](https://etherscan.io/address/0xe8C52367b81113ED32bb276184e521C2fbE9393A)
+
+## Harvest crvHUSD
+
+- HarvestMarket deployed at 0x095cCFeDF134D20a033eeA5ab124C03777e8B0B0
+- EMAOracle deployed at 0x64eC20abf1760a9D8a2DF69a1a10D2Ee76D7675c
+- 88mph Harvest crvHUSD Pool Deposit deployed at 0xEE49eCECa7853104A2Ac68FafF8568598F8AF226
+- 88mph Harvest crvHUSD Pool Bond deployed at 0x6E3e1AB141F20FD89856677F1Ea2366C6A6aB326
+- 88mph Harvest crvHUSD Pool deployed at 0xb1ABAac351e06d40441CF2CD97F6f0098e6473F2
+
+## Harvest 3CRV
+
+- HarvestMarket deployed at 0x68c16B704567F23a59615Fd7dc38ebE9E6768a1F
+- EMAOracle deployed at 0xCf208972255B9f21B71f7ca2B0b4Df93Ca006150
+- 88mph Harvest 3CRV Pool Deposit deployed at 0xeC5B08D6113A98EDb872fA2D8edfA9F2472b823c
+- 88mph Harvest 3CRV Pool Bond deployed at 0x5421eA9A76f116B283385a82fC50b64Cf2121A64
+- 88mph Harvest 3CRV Pool deployed at 0x2F3EFD1a90a2336ab8fa1B9060380DC37361Ca55
+
+## Harvest crvHBTC
+
+- HarvestMarket deployed at 0xF34c3AEA5261864B40b8a5aFd3bE8d9AABdD96f9
+- EMAOracle deployed at 0x8fB81eB0ee694089Bfe9b58200287cA30422E2B3
+- 88mph Harvest crvHBTC Pool Deposit deployed at 0x75e2ADA00724e30bF9A19F2565aBF40608B12697
+- 88mph Harvest crvHBTC Pool Bond deployed at 0x18d1AE63b388a6581CdF8a9b7336F74bF2e75532
+- 88mph Harvest crvHBTC Pool deployed at 0x3f5611F7762cc39FC11E10C864ae38526f650e9D
+
+## Aave v2 sUSD
+
+- AaveMarket deployed at 0x473cA701B5279C3F0d54C059d8c29B8ad470B44D
+- EMAOracle deployed at 0xF38cA0CFFc53A6B6C62c2bE87967fcc13e807751
+- 88mph aSUSD Pool Deposit deployed at 0x38E5bE1EcE9407F7619d6147fE64B29f6a732650
+- 88mph aSUSD Pool Bond deployed at 0x2C0869bAC0a95a5ca7D48e14570A57171aefC252
+- 88mph aSUSD Pool deployed at 0x6712BAab01FA2dc7bE6635746Ec2Da6F8Bd73e71
+
+## Aave v2 DAI
+
+- AaveMarket deployed at 0xd9d2E415C43c490954b3904b0fE3083147aAb351
+- EMAOracle deployed at 0xBD9f5F4E2382Fa3686caB4E2800f6f9Bd41e7709
+- 88mph aDAI Pool Deposit deployed at 0xDBd226Cd2Bbfed00B448c9DB426B749b4600C18d
+- 88mph aDAI Pool Bond deployed at 0x461D94044027c7113812C2167EFd38F12d7E9d66
+- 88mph aDAI Pool deployed at 0x7222A088bD7268cbB0b188f10d136AFcF399EF71
