@@ -32,21 +32,23 @@ Creates a single deposit for the caller.
 - `amount`: The amount of `stablecoin` to deposit. The caller should have already approved the contract to spend this much `stablecoin` before calling this function. Scaled by \(10^{stablecoinDecimals}\).
 - `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
 
-##### `function withdraw(uint256 depositID) external`
+##### `function withdraw(uint256 depositID, uint256 fundingID) external`
 
 Withdraws a single deposit for the caller. The caller must own the deposit NFT with ID `depositID`.
 
 - `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
+- `fundingID`: The index of the funding object that funded the deposit's debt in the `fundingList` array plus 1. It can be found using our [subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph).
 
 ###### Important note
 
 Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.
 
-##### `function earlyWithdraw(uint256 depositID) external`
+##### `function earlyWithdraw(uint256 depositID, uint256 fundingID) external`
 
 Withdraws a single deposit for the caller, before the maturation timestamp. The caller must own the deposit NFT with ID `depositID`.
 
 - `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
+- `fundingID`: The index of the funding object that funded the deposit's debt in the `fundingList` array plus 1. It can be found using our [subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph).
 
 ##### `function multiDeposit(uint256[] calldata amountList, uint256[] calldata maturationTimestampList) external`
 
@@ -59,11 +61,12 @@ Deposits multiple deposits for the caller. The values at each index in each arra
 
 The maximum recommended number of deposits is 20.
 
-##### `function multiWithdraw(uint256[] calldata depositIDList) external`
+##### `function multiWithdraw(uint256[] calldata depositIDList, uint256[] calldata fundingIDList) external`
 
 Withdraws multiple deposits for the caller. The caller must own the deposit NFTs with IDs in `depositIDList`.
 
 - `depositIDList`: The indices of the deposits to be withdrawn in the `deposits` array plus 1.
+- `fundingIDList`:  The indices of the funding objects that funded the deposit's debt in the `fundingList` array plus 1. It can be found using our [subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph).
 
 ###### Input size limit
 
@@ -73,11 +76,12 @@ The maximum recommended number of deposits is 100.
 
 Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference. This is the main risk of depositing into 88mph. If withdrawing actually fails, `earlyWithdraw()` may be called to get back the deposit minus the upfront interest and fee.
 
-##### `function multiEarlyWithdraw(uint256[] calldata depositIDList) external`
+##### `function multiEarlyWithdraw(uint256[] calldata depositIDList, uint256[] calldata fundingIDList) external`
 
 Withdraws multiple deposits for the caller, before the maturation timestamp. The caller must own the deposit NFTs with IDs in `depositIDList`.
 
 - `depositIDList`: The indices of the deposits to be withdrawn in the `deposits` array plus 1.
+- `fundingIDList`:  The indices of the funding objects that funded the deposit's debt in the `fundingList` array plus 1. It can be found using our [subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph).
 
 ###### Input size limit
 
