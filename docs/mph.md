@@ -35,18 +35,18 @@ This reward can also have vesting like depositor rewards, though for now, we don
 The multiplier’s unit is MPH per second per stablecoin (of deposit).
 假设用户本金是美元，发行率乘数的单位是，MPH每美元每秒。
 So a good way to think about what a smart issuance rate multiplier is: given x stablecoins deposit for 1 year, how much MPH should be rewarded?
-因此，我们可以思考这个发行率乘数的合理性：本金X，存期一年，存款人将获得多少MPH奖励？
+因此，可以这样思考这个发行率乘数的合理性：本金X，存期一年，存款人将获得多少MPH奖励？
 We preset the issuance rate at relaunch with a lower issuance rate than v1 launch. Temporary MPH reward are distributed to your address over a 7-day vesting period and you keep your permanent MPH reward at maturity. If early withdraw, then 100% of the reward need to be paid back and they are burnt (not adding to the total supply of MPH).
-我们预先设置的发行率，第二次比第一次低。短期的MPH奖励
+部署者的预设是，第二次的发行率总是低于前一次的数字。MPH奖励会在7天内分发到您的地址，除去要归还的部分，永久的MPH奖励会一直保留在您的账户内。如果提前取出本金，那么您须归还全部的MPH奖励，这部分将会被销毁，永久减少MPH的总供应量。
 We’ll revisit the depositors’ reward shortly after relaunch according to the evolution of the MPH price and the TVL growth in each pool.
-
+发行率重置后，我们会根据MPH价格的变化和每个池中总锁仓价值的增长重新评估储户的奖励。
 Note: for issuance rate updates, we use the governance multisig directly as the contract owner. It allows us more flexibility in these early days. We will transition to a timelock after the dust has settled. The protocol's parameters will be ended over to the community token holders when the governance system will be launched.
-
+注意：对于发行率的更新，我们直接使用参与社区治理成员的多重签名作为其合约所有者，这会让我们在当下的孵化阶段灵便许多。等社区成熟时，我们将转而使用时间锁定（Timelock）合约。启动治理系统时，协议参数会转交给社区币持有者。
 The core team vision is low issuance for the foreseeable future to don’t wreck the liquidity mining program, and don't dilute too much early adopters, while allowing the growth of the deposits TVL to generate sustainable profits for MPH stakers (so we'll probably incentivize more the Compound pools to harvest more COMP). That's the goal and it'll be a test & learn process other the coming days/weeks.
-
+部署团队的核心愿景是在可预见的短期内，发币量保持在较低水平，以免破坏流动性采矿计划，也不会稀释过多的早期用户，同时允许总锁仓价值增量为MPH利益相关者产生可持续的利润（因此，我们可能会启动更多的复合池以收获更多的COMP币）。对于本团队而言，这是一个小目标，是一个学习过程，也是接下来数周内需要经历的考验。
 
 ## MPH Staking rewards (Revenues sharing)
-
+## 
 By staking your MPH, you can claim your share of rewards from the 88mph rewards pool where the protocol fee and yield-farming rewards are collected.
 
 88mph distribute 100% of its revenues with the community:
