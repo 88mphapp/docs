@@ -46,32 +46,35 @@ The core team vision is low issuance for the foreseeable future to don’t wreck
 部署团队的核心愿景是在可预见的短期内，发币量保持在较低水平，以免破坏流动性采矿计划，也不会稀释过多的早期用户，同时允许总锁仓价值增量为MPH利益相关者产生可持续的利润（因此，我们可能会启动更多的复合池以收获更多的COMP币）。对于本团队而言，这是一个小目标，是一个学习过程，也是接下来数周内需要经历的考验。
 
 ## MPH Staking rewards (Revenues sharing)
-## 
-By staking your MPH, you can claim your share of rewards from the 88mph rewards pool where the protocol fee and yield-farming rewards are collected.
-
+## MPH 锁仓奖励（收益分红）
+By staking your MPH, you can your share of rewards from the 88mph rewards pool where the protocol fee and yield-farming rewards are collected.
+社区服务费和耕作奖励都收集在88mph奖励池中，一旦你stake你的MPH币，就可以向88mph奖励池索取你的奖励份额。
 88mph distribute 100% of its revenues with the community:
-
+本平台的所有收益都将与整个社区共享。
 * 88mph protocol fee: 10% is deducted from the interest when a depositor withdraws.
 * Yield-farming rewards: yield-farmed tokens earned from the protocols 88mph is connected to (COMP, etc.).
-
+* 88mph 服务费：当储户取出本金时，将从其利息里扣除10%作为社区服务费。
+* 耕作奖励：从88mph平台获得的耕作收益代币已和COMP等相关联。
 88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers.
-
+88mph的服务费和耕作奖励，比如COMP币，在您允许我们把COMP换成DAI并将奖励分发给参与MPH锁仓的用户前，将在我们MPH锁仓矿池中持续积累。
 **Notes**: The MPH staking rewards APY is currently unknown because no fees were generated so far and the COMP harvested require time to accumulate. The 10% fee on the interest earned by lenders is applied only if someone withdraws his principal at maturity. An early withdrawal enquires no fee because the interest generated stays in the pool. It's not distributed to the original lender. It will generate compounded interests for everyone else staying in the fixed-rate APY pool.
-
+**注意**：MPH锁仓奖励的年收益率暂不可知，因为到目前为止还没有产生任何费用，也需要时间来积累COMP收益。从利息中扣除10%服务费的收取对象仅限那些存期满时取出本金的用户。提前取出本金的储户无须扣费，因为他们在存期未满时间内获得的利息将保留在资金池中，不会给到储户。这部分利息将为其他储户带来额外收益。
 You can claim and unstake when you want.
-
+你想什么时候索取和解锁你的奖励都可以。
 ## Developer fund
-
+## 开发者基金
 Whenever MPH is minted by new deposits, an additional 10% of the minted amount is minted and sent to the developer fund. These MPH will be used to pay for future development & maintenance of the protocol.
-
+一旦有新存款流入池中，有新的MPH币铸成，都将有一笔额外的MPH币同时铸成，数额是该笔新铸币的10%，并收入开发者基金。这些额外的MPH将用于社区未来的发展和维护。
 Development funds: 0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b
-
+开发者基金合约地址：0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b
 ## Governance treasury
+## 社区治理经费
 MPH holders have the power to shape the future of the protocol. A dedicated Snapshot will be live shortly after the protocol launch to enable community control.
-
+MPH 持有用户有权决定平台的未来。在平台启动后不久，将启用专门的快照以保证社区治理机制良好运作。
 As previously stated, the governance treasury receives the MPH tokens paid back by depositors when they withdraw their deposits. These MPH will be used by whatever the MPH holders decide on.
-
+如前所述，社区治理经费的来源是储户取款时归还的MPH。这些MPH的用途由MPH持有者全权决定。
 
 The governance process works by having users vote with their MPH tokens on various proposals ranging from protocol parameters to smart ways of using the capital assets stored in the treasury for creating new incentives, capitalization, and at the end growth.
-
+社区治理的运作机制是，用户使用他们的MPH币对不同议案进行投票，议案内容多样，包括各项平台参数，如何使用社区治理经费（开创新的激励机制，资本化，最终增长）等等。
 Governance treasury: 0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD
+社区治理经费合约地址：0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD
