@@ -54,7 +54,7 @@ By staking your MPH, you can your share of rewards from the 88mph rewards pool w
 * 88mph protocol fee: 10% is deducted from the interest when a depositor withdraws.
 * Yield-farming rewards: yield-farmed tokens earned from the protocols 88mph is connected to (COMP, etc.).
 * 88mph 服务费：当储户取出本金时，将从其利息里扣除10%作为社区服务费。
-* 耕作奖励：从88mph平台获得的耕作收益代币已和COMP等相关联。
+* 挖矿奖励：从88mph平台获得的挖矿收益代币COMP等相关联。
 88mph's protocol fee and yield-farmed tokens like $COMP need to accumulate in our MPH staking pool before allowing us to swap them for $DAI and distribute the rewards to $MPH stakers.
 88mph的服务费和耕作奖励，比如COMP币，在您允许我们把COMP换成DAI并将奖励分发给参与MPH锁仓的用户前，将在我们MPH锁仓矿池中持续积累。
 **Notes**: The MPH staking rewards APY is currently unknown because no fees were generated so far and the COMP harvested require time to accumulate. The 10% fee on the interest earned by lenders is applied only if someone withdraws his principal at maturity. An early withdrawal enquires no fee because the interest generated stays in the pool. It's not distributed to the original lender. It will generate compounded interests for everyone else staying in the fixed-rate APY pool.
