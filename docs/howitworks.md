@@ -1,13 +1,11 @@
-# How 88mph works
-# 88mph的工作原理
-## Overview
+# 88mph的运作策略
 ## 概览
 What exactly happens when you, say, deposit 100 DAI into 88mph for 1 year at 10% fixed-rate APY?
-把100 DAI存入88mph，按10%的固定利率计算年收益率，一年后会有何变化？
+如果你把100DAI存进88mph平台，存期一年，按10%的固定利率计算收益，会发生什么变化？
 1. Your 100 DAI is transferred to 88mph.
-1. 你的100 DAI转移到了88mph平台。
+1. 你的100 DAI存进了88mph。
 2. 88mph deposits the 100 DAI into a yield-generating protocol with variable rate APY, which will generate yield for the 1 year deposit period.
-2. 88mph平台把这100 DAI存进另一个按照可变利率计算年收益率的交易平台，该平台负责在这一年存期中产生实际收益。
+2. 88mph把这100 DAI存进另一个按照可变利率计算年收益率的交易平台，该平台负责在这一年存期中产生实际收益。
 3. Once the 1 year is over, you withdraw 110 DAI from 88mph.
 3.一年期满后，你可以从88mph中取出110 DAI。
 At first glance, this may seem extremely problematic. To begin with, how is this different from simply juggling your own money around? Secondly, if the yield-generating protocol failed to generate 10 DAI of yield from the 100 DAI given to it in 1 year, you can't guarantee that you can withdraw 110 DAI from 88mph.
