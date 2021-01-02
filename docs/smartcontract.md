@@ -38,9 +38,10 @@ Globally 88mph has the following contracts for handling things related to the MP
 Creates a single deposit for the caller.
 负责为来访者建立一笔单一的存款。
 - `amount`: The amount of `stablecoin` to deposit. The caller should have already approved the contract to spend this much `stablecoin` before calling this function. Scaled by \(10^{stablecoinDecimals}\).
-- `amount`: 存入的`stablecoin`（稳定币）数量。在调用此函数前，来访者应该已经认可了支出这么多`stablecoin`的合同。计算公式为\(10^{stablecoinDecimals}\)。
+- `amount`: 存入的`stablecoin`数量。在调用此函数前，来访者应该已经认可了支出这么多`stablecoin`的合同。计算公式为\(10^{stablecoinDecimals}\)。
 - `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
 - `maturationTimestamp`: Unix时间戳，数秒记录存款时间，失效即期满。
+
 ##### `function withdraw(uint256 depositID) external`
 
 Withdraws a single deposit for the caller. The caller must own the deposit NFT with ID `depositID`.
@@ -123,17 +124,21 @@ Before calling this function, the caller must approve at least the deficit amoun
 在调用此函数之前，来访者必须至少批准`stablecoin`的赤字金额到`DInterest`合约。 可以使用 [`surplusOfDeposit()`](#function-surplusofdeposituint256-depositid-external-view-returns-bool-isnegative-uint256-surplusamount)获得此金额。为避免交易被还原，建议您将批准金额简单地设置为\(2^{256}-1\)。
 
 - `toDepositID`: Deposits with ID from (not including) `lastFundedDepositID` to (including) `toDepositID` will be funded.
-- `toDepositID`: ID为从（不包括） `lastFundedDepositID`到（包括）`toDepositID`的存款将会被资助。
+- `toDepositID`: ID从（不包括） `lastFundedDepositID`到（包括）`toDepositID`的存款将会得到资助。
+
 #### Read only functions
+#### 只读函数
 
 ##### `function getDeposit(uint256 depositID) external view returns (uint256 amount, uint256 maturationTimestamp, uint256 initialDeficit, uint256 initialMoneyMarketIncomeIndex, bool active)`
 
 Returns info about a user deposit. The owner of the deposit is whichever Ethereum account that owns the ERC721 deposit token with id `depositID`.
+负责回传有关用户存款的信息。存款所有者是拥有ID为`depositID`的ERC721存款令牌的以太坊账户。
 
 ###### Inputs
+###### 输入
 
 - `depositID`: The index of the deposit in the `deposits` array.
-
+- `depositID`:`deposits`数组中的存款索引。
 ###### Returns
 
 - `amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
@@ -144,168 +149,232 @@ Returns info about a user deposit. The owner of the deposit is whichever Ethereu
 - `finalSurplusIsNegative`: `true` if at the time of withdrawal the deposit had a negative surplus, `false` otherwise.
 - `finalSurplusAmount`: The amount of surplus/debt of the deposit at the time of withdrawal.
 - `mintMPHAmount`: The amount of MPH tokens minted to the user at the time of deposit.
+- `amount`:存入的稳定币数量。计算公式为\(10^{stablecoinDecimals}\)。
+- `maturationTimestamp`: Unix时间戳，数秒记录存款时间，失效即期满。
+- `interestOwed`: 承诺该存款的初始利息。
+- `initialMoneyMarketIncomeIndex`: 在存期内由[`moneyMarket.incomeIndex()`](#function-incomeIndex-external-returns-uint256) 返还的实际值。
+- `active`: 如未取存款则为`true`, 反之则为`false`.
+- `finalSurplusIsNegative`:如果提款时存款有负债则为 `true`，反之则为`false`。
+- `finalSurplusAmount`: 提款时存款的负债金额。
+- `mintMPHAmount`: 存款时为用户铸造的MPH令牌数量。
 
 ##### `function getFunding(uint256 fundingID) external view returns (uint256 fromDepositID, uint256 toDepositID, uint256 recordedFundedDepositAmount, uint256 recordedMoneyMarketIncomeIndex)`
 
 Returns info about a funding. The owner of the funding (and the account who will receive the interests) is whichever Ethereum account that owns the ERC721 funding token with id `fundingID`.
+返回有关债券的信息。资金所有者（以及将获得利息的帐户）是拥有ID为`fundingID`的ERC721资金令牌的以太坊帐户。
 
 ###### Inputs
 
 - `fundingID`: The index of the funding in the `fundingList` array.
+- `fundingID`：`fundingList`数组中的债券索引。
 
 ###### Returns
 
 - `fromDepositID`: Deposits with ID from (not including) `fromDepositID` to (including) `toDepositID` have their deficits funded by this funding instance.
+- `fromDepositID`: ID从（不包括）`fromDepositID`到（包括）`toDepositID`的利息赤字由该债券提供资金。
 - `toDepositID`: Deposits with ID from (not including) `fromDepositID` to (including) `toDepositID` have their deficits funded by this funding instance.
+- `toDepositID`: ID从（不包括）`fromDepositID`到（包括）`toDepositID`的利息赤字由该债券提供资金。
 - `recordedFundedDepositAmount`: The current total deposit amount that is generating interest for the owner of this funding instance, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
-- `recordedMoneyMarketIncomeIndex`: The value returned by [`moneyMarket.incomeIndex()`](#function-incomeIndex-external-returns-uint256) at the time of the latest withdrawal of a deposit funded by this funding instance. If no funded deposit has been withdrawn yet, this value is equal to the monet market incomeIndex at the time of the funding instance's creation.
+- `recordedFundedDepositAmount`: 该债券所有者所资助利息的总存款数目，以稳定币表示。 计算公式为\（10 ^ {stablecoinDecimals} \）。
+- `recordedMoneyMarketIncomeIndex`: The value returned by [`moneyMarket.incomeIndex()`](#function-incomeIndex-external-returns-uint256) at the time of the latest withdrawal of a deposit funded by this funding instance. If no funded deposit has been withdrawn yet, this value is equal to the money market incomeIndex at the time of the funding instance's creation.
+- `recordedMoneyMarketIncomeIndex`:在该债券所资助的存款最近一次被提取时，[`moneyMarket.incomeIndex（）`]（＃function-incomeIndex-external-returns-uint256）返回的值。 如果尚未提取任何资金存款，则该值等于购买债券时的货币市场收入指数。
 
 ##### `function MinDepositPeriod() external view returns (uint256)`
 
 Returns the minimum deposit period, in seconds.
+返回最小存款期限，以秒为单位。
 
 ##### `function MaxDepositPeriod() external view returns (uint256)`
 
 Returns the maximum deposit period, in seconds.
+返回最大存款期限，以秒为单位。
 
 ##### `function MinDepositAmount() external view returns (uint256)`
 
 Returns the minimum deposit amount for a single deposit in `stablecoin`. Scaled by \(10^{stablecoinDecimals}\).
+返回单笔`stablecoin`（稳定币）存款的最小存款额。 计算公式为\（10 ^ {stablecoinDecimals} \）。
 
 ##### `function MaxDepositAmount() external view returns (uint256)`
 
 Returns the maximum deposit amount for a single deposit in `stablecoin`. Scaled by \(10^{stablecoinDecimals}\).
+返回单笔`stablecoin`（稳定币）存款的最大存款额。 计算公式为\（10 ^ {stablecoinDecimals} \）。
 
 ##### `function totalDeposit() external view returns (uint256)`
 
 Returns the total deposited amount of `stablecoin`. Scaled by \(10^{stablecoinDecimals}\).
+返回`stablecoin`的总存款金额。 计算公式为\（10 ^ {stablecoinDecimals} \）。
 
 ##### `function moneyMarket() external view returns (address)`
 
 Returns the address of `MoneyMarket`.
+返回`MoneyMarket`的地址。
 
 ##### `function stablecoin() external view returns (address)`
 
 Returns the address of the stablecoin used.
+返回所用稳定币的地址。
 
 ##### `function feeModel() external view returns (address)`
 
 Returns the address of `FeeModel`.
+返回`FeeModel`的地址。
 
 ##### `function interestModel() external view returns (address)`
 
 Returns the address of `InterestModel`.
+返回`InterestModel`的地址。
 
 ##### `function interestOracle() external view returns (address)`
 
 Returns the address of `InterestOracle`.
+返回`InterestOracle`的地址。
 
 ##### `function depositNFT() external view returns (address)`
 
 Returns the address of the ERC721 deposit token.
+返回ERC721存款代币的地址。
 
 ##### `function fundingNFT() external view returns (address)`
 
 Returns the address of ERC721 funding token.
+返回ERC721债券代币的地址。
 
 ##### `function calculateInterestAmount(uint256 depositAmount, uint256 depositPeriodInSeconds) external view returns (uint256 interestAmount)`
 
 Returns the interest amount given the deposit amount and period.
+返回给定存款金额和期限的利息金额。
 
 ###### Inputs
+###### 输入
 
 - `depositAmount`: The amount of the deposit in `stablecoin`. Scaled by \(10^{stablecoinDecimals}\).
 - `depositPeriodInSeconds`: The length of the deposit's deposit period, in seconds.
+- `depositAmount`:`stablecoin`存款金额。计算公式为\(10^{stablecoinDecimals}\)。
+- `depositPeriodInSeconds`: 存款时长，以秒为单位。
 
 ##### `function surplus() external view returns (bool isNegative, uint256 surplusAmount)`
 
 Returns the surplus value of the pool over the owed deposits.
+返回池中现有存款数的利息。
 
 ###### Returns
+###### 返回值
 
 - `isNegative`: Whether the surplus is negative. A negative surplus means there's a deficit.
 - `surplusAmount`: Amount of the pool's surplus, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
+- `isNegative`: 盈余是否为负。 盈余为负表示存在赤字。
+- `surplusAmount`: 池中现有存款的盈余数，以稳定币表示。计算公式为\(10^{stablecoinDecimals}\)。
 
 ##### `function surplusOfDeposit(uint256 depositID) external view returns (bool isNegative, uint256 surplusAmount)`
 
 Returns the surplus value of a particular deposit. Does not include funding.
+返回某笔特定存款的盈余数目。不包括债券。
 
 ###### Inputs
+###### 输入值
 
 - `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
+- `depositID`:要提取的存款索引，在 `deposits`数组中加1。
 
 ###### Returns
+###### 返回值
 
 - `isNegative`: Whether the surplus is negative. A negative surplus means there's a deficit.
 - `surplusAmount`: Amount of the pool's surplus, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
+- `isNegative`: 盈余是否为负。 盈余为负表示存在赤字。
+- `surplusAmount`: 池中现有存款的盈余数，以稳定币表示。计算公式为\(10^{stablecoinDecimals}\)。
 
 ##### `function depositsLength() external view returns (uint256)`
 
 Returns the length of the `deposits` array.
+返回`deposits`数组的长度。
 
 ##### `function fundingListLength() external view returns (address)`
 
 Returns the length of the `fundingList` array.
+返回`fundingList`数组的长度。
 
 ##### `function depositIsFunded(uint256 depositID) external view returns (bool)`
 
 ###### Inputs
+###### 输入值
 
 - `depositID`: The index of the deposit to be withdrawn in the `deposits` array plus 1.
+- `depositID`:要提取的存款索引，在`deposits`数组中加1。
 
 ###### Returns
 
 Returns whether or not the deposit's deficit has been funded.
+返回是否已为存在赤字的存款提供资金。
 
 ##### `function latestFundedDepositID() external view returns (uint256)`
 
 Returns the maximum ID among funded deposits. It can be assumed that all deposits with ID less than or equal to this value have been funded.
+返回资金存款中的最大ID值。 可以假设所有ID小于或等于此值的存款都已被资助。
 
 ##### `function unfundedUserDepositAmount() external view returns (uint256)`
 
 Returns the deposited `stablecoin` amount whose deficit hasn't been funded. Scaled by \(10^{stablecoinDecimals}\).
+返回未填补赤字的`stablecoin`（稳定币）存款金额。 计算公式为\（10 ^ {stablecoinDecimals} \）。
 
 ### FeeModel
+### 费用模型
 
 #### Read only functions
+#### 只读函数
 
 ##### `function getFee(uint256 _txAmount) external pure returns (uint256 _feeAmount)`
 
 Used for determining how much fee to charge from a transaction.
+用于确定从交易中收取多少费用。
 
 ###### Inputs
+###### 输入值
 
 - `_txAmount`: The amount of the transaction from which a fee will be taken.
+- `_txAmount`: 从中收取费用的交易金额。
 
 ###### Returns
+###### 返回值
 
 - `_feeAmount`: The amount of the fee that will be taken from the transaction.
+- `_feeAmount`: 从交易中收取的费用金额。
 
 ##### `function beneficiary() external view returns (address)`
 
 Returns the address who will receive the fees.
+返回将收取费用的地址。
 
 ### MoneyMarket
+### 资金市场
 
 #### State changing functions
+### 状态变化函数
 
 ##### `function deposit(uint256 amount) external`
 
 Lends `amount` stablecoins to the underlying money market protocol.
+向基础货币市场借出的稳定币`amount`（数量）。
 
 ###### Inputs
+###### 输入值
 
 - `amount`: The amount of stablecoins to be deposited.
+- `amount`:要存入的稳定币数量。
 
 ##### `function withdraw(uint256 amountInUnderlying) external`
 
 Withdraws `amountInUnderlying` stablecoins from the underlying money market protocol.
+从底层货币市场中提取`amountInUnderlying`稳定币。
 
 ###### Inputs
+###### 输入值
 
 - `amountInUnderlying`: The amount of stablecoins to be withdrawn.
+- `amountInUnderlying`:要提取的稳定币数量。
 
 #### Read only functions
+#### 只读函数
 
 ##### `function totalValue() external returns (uint256)`
 
