@@ -10,7 +10,7 @@
 ## 共享
 
 - 社区治理经费（Governance Treasury）部署地址: [0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD](https://etherscan.io/address/0x56f34826Cc63151f74FA8f701E4f73C5EAae52AD)
-- 社区治理时间戳(Governance Timelock): [0x4027d912A19E3Cd540FB580aF6A9088eAC738566](https://etherscan.io/address/0x4027d912A19E3Cd540FB580aF6A9088eAC738566)
+- 社区治理时间锁定(Governance Timelock)合约地址: [0x4027d912A19E3Cd540FB580aF6A9088eAC738566](https://etherscan.io/address/0x4027d912A19E3Cd540FB580aF6A9088eAC738566)
 - 开发者钱包(Developer Wallet): [0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b](https://etherscan.io/address/0xfecBad5D60725EB6fd10f8936e02fa203fd27E4b)
 - 挖矿奖励(Rewards): [0x98df8D9E56b51e4Ea8AA9b57F8A5Df7A044234e1](https://etherscan.io/address/0x98df8D9E56b51e4Ea8AA9b57F8A5Df7A044234e1)
 - Dumper deployed at [0x5B3C81C86d17786255904c316bFCB38A46146ef8](https://etherscan.io/address/0x5B3C81C86d17786255904c316bFCB38A46146ef8)
