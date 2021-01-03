@@ -52,7 +52,7 @@
 
 ##### `function multiDeposit(uint256[] calldata amountList, uint256[] calldata maturationTimestampList) external`
 
-负责为来访者存入多笔存款。每个数组中每个指数的值将被合并以创建单个存款。
+负责为来访者存入多笔存款。每个数组中每个索引的值将被合并以创建单个存款。
 
 - `amountList`：要存入的`stablecoin`数量的数组。在调用此函数前，来访者应该已经认可了支出这么多`stablecoin`的合同。计算公式为\(10^{stablecoinDecimals}\)。
 - `maturationTimestampList`:Unix时间戳数组，记录存款时间，以秒为单位，失效即期满。
@@ -65,8 +65,8 @@
 
 负责为来访者取出多笔存款。来访者必须拥有ID为`depositIDList`中的存款NFT。
 
-- `depositIDList`：`deposits`数组中要提取的各笔存款的指数加1。
-- `fundingID`: 在`fundingList`数组中为利息赤字供资的债券买家的指数加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到该ID。
+- `depositIDList`：`deposits`数组中要提取的各笔存款的索引加1。
+- `fundingID`: 在`fundingList`数组中为利息赤字供资的债券买家的索引加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到该ID。
 
 ###### 输入大小限制
 
@@ -74,14 +74,14 @@
 
 ###### 注意事项
 
-如果88mph流动池在底层交易市场中无法产生足额利息来偿算承诺给用户的利息，并且也没人买债券来补足差额，那么取款则有可能失败。这是在88mph平台上投资的主要风险。如果取款失败，`earlyWithdraw()`程序可能被唤醒从本金中扣除前一阶段预付的利息和费用。
+如果88mph流动池在基础收益市场中无法产生足额利息来偿算承诺给用户的利息，并且也没人买债券来补足差额，那么取款则有可能失败。这是在88mph平台上投资的主要风险。如果取款失败，`earlyWithdraw()`程序可能被唤醒从本金中扣除前一阶段预付的利息和费用。
 
 ##### `function multiEarlyWithdraw(uint256[] calldata depositIDList) external`
 
 负责在存期未满时为来访者取出多笔存款。来访者必须拥有ID为`depositIDList`中的存款NFT。
 
-- `depositIDList`: `deposits`数组中要提取的各笔存款的指数加1。
-- `fundingIDList`: 在`fundingList`数组中为多笔利息赤字供资的债券买家的指数加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到ID。
+- `depositIDList`: `deposits`数组中要提取的各笔存款的索引加1。
+- `fundingIDList`: 在`fundingList`数组中为多笔利息赤字供资的债券买家的索引加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到ID。
 
 ###### 输入大小限制
 
@@ -128,7 +128,7 @@
 
 ###### 输入值
 
-- `fundingID`：`fundingList`数组中的债券指数。
+- `fundingID`：`fundingList`数组中的债券索引。
 
 ###### 返回值
 
