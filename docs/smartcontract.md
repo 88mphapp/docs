@@ -131,7 +131,7 @@
 - `fromDepositID`: ID从（不包括）`fromDepositID`到（包括）`toDepositID`的利息赤字由该债券提供资金。
 - `toDepositID`: ID从（不包括）`fromDepositID`到（包括）`toDepositID`的利息赤字由该债券提供资金。
 - `recordedFundedDepositAmount`: 该债券所有者所资助利息的总存款数目，以稳定币表示。 计算公式为\（10 ^ {stablecoinDecimals} \）。
-- `recordedMoneyMarketIncomeIndex`:在该债券所资助的存款最近一次被提取时，[`moneyMarket.incomeIndex（）`]（＃function-incomeIndex-external-returns-uint256）返回的值。如果尚未提取任何存款，则该值等于购买债券时的货币市场收入指数。
+- `recordedMoneyMarketIncomeIndex`:在该债券所资助的存款最近一次被提取时，[`moneyMarket.incomeIndex（）`]（#function-incomeIndex-external-returns-uint256）返回的值。如果尚未提取任何存款，则该值等于购买债券时的货币市场收入指数。
 
 ##### `function MinDepositPeriod() external view returns (uint256)`
 
