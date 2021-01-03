@@ -120,7 +120,7 @@
 
 ##### `function getFunding(uint256 fundingID) external view returns (uint256 fromDepositID, uint256 toDepositID, uint256 recordedFundedDepositAmount, uint256 recordedMoneyMarketIncomeIndex)`
 
-返回有关债券的信息。债券所有者（以及将获得利息的帐户）是拥有ID为`fundingID`的ERC721资金令牌的以太坊帐户。
+返回有关债券的信息。债券所有者（以及将获得利息的帐户）是拥有ID为`fundingID`的ERC721债券代币的以太坊帐户。
 
 ###### 输入值
 
