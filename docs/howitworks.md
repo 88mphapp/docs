@@ -45,6 +45,6 @@
 
 以下是一些可实现的玩法：
 
-- 如果你已经把一大笔钱存入88mph，但是突然急用现金，但你又不想提前取款终止收益？你可以使用你存款的NFT作为抵押，在第三方借贷平台（如[RocketNFT](https://medium.com/@AlexMasmej/introducing-rocket-get-a-loan-against-your-nfts-f67b1b5738f0)）贷款，在期满取出存款时再还上这笔贷款（美滋滋~）。
+- 如果你已经把一大笔钱存入88mph，但是突然急用现金，但你又不想提前取款终止收益？你可以使用你存款的NFT作为抵押，在第三方借贷平台（如[RocketNFT](https://medium.com/@AlexMasmej/introducing-rocket-get-a-loan-against-your-nfts-f67b1b5738f0)）贷款，在期满取出存款时再还上这笔贷款。
 - 你可以用ERC20代币包装你所持债券的NFT，再分散卖出去。
 - 即便只是用你最喜欢的NFT艺术家作品作为你的NFT形象，也是很棒很日常的玩法。
