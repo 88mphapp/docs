@@ -10,7 +10,7 @@ MPH代币合约地址：0x8888801af4d980682e47f1a9036e589479e835c5
 
 # 总供应量
 
-MPH代币总供应量取决于总锁仓价值（Total Value Locked）的增长。当前，我们激励用户向我们的 [流动池子](https://88mph.app/deposits)存款的机制主要是，根据[发行率](https://88mph.app/docs/mph/#issuance-rate-multiplier)向用户发放更多MPH币作为投资奖励。正在孵化的社区共治机制将负责监控各项平台参数，并对作为奖励的MPH代币来源有决定权：重新铸币发放或者从[社区治理经费](https://88mph.app/docs/mph/#governance-treasury)中获取。因此，MPH持有者有权决定如何刺激总锁仓价值增长，通过这种方式，[MPH锁仓挖矿用户](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing)能够获得更多收益，也不会过分削弱早期用户的决策权。
+MPH代币总供应量取决于总锁仓价值（Total Value Locked）的增长。当前，我们激励用户向我们的[流动池子](https://88mph.app/deposits)存款的机制主要是，根据[发行率](https://88mph.app/docs/mph/#issuance-rate-multiplier)向用户发放更多MPH币作为投资奖励。正在孵化的社区共治机制将负责监控各项平台参数，并对作为奖励的MPH代币来源有决定权：重新铸币发放或者从[社区治理经费](https://88mph.app/docs/mph/#governance-treasury)中获取。因此，MPH持有者有权决定如何刺激总锁仓价值增长，通过这种方式，[MPH锁仓挖矿用户](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing)能够获得更多收益，也不会过分削弱早期用户的决策权。
 
 至此，可以说MPH币的总供应量并没有极值，但MPH持仓用户对供应量有决策权。
 
