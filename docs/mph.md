@@ -1,24 +1,21 @@
-# MPH tokenomics
 # MPH 代币经济
 
-An initial supply of 88,000 MPH were minted and will be distributed via liquidity mining.
 MPH是88mph的代币，首次铸币量为88000 MPH，通过流动性挖矿的方式分发给用户。
-It begins at 12:00 pm PT 11/20/20 and lasts 14 days.
+
 初次发行于太平洋时间2020年11月20日中午12：00（即北京时间2020年11月21日凌晨4：00），共持续14天。
 
-MPH token address: 0x8888801af4d980682e47f1a9036e589479e835c5
 MPH代币合约地址：0x8888801af4d980682e47f1a9036e589479e835c5
-# Total supply
+
 # 总供应量
-The MPH total supply depends on TVL's growth. Currently, 88mph incentivizes the lenders to deposit their funds in the [fixed-rate APY pools](https://88mph.app/deposits) by rewarding them with new MPH distributed according to an [issuance rate](https://88mph.app/docs/mph/#issuance-rate-multiplier). The upcoming governance will be in charge to monitor the protocol's parameters and decide from where the MPH rewards come from (new issuance and/or [governance treasury](https://88mph.app/docs/mph/#governance-treasury)). So it's up to the MPH holders to decide how to stimulate TVL growth, and by doing so, generate more revenues for [MPH stakers](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing), without diluting too much early adopters. 
-MPH代币总供应量取决于总锁仓价值（Total Value Locked）的增长。当前，我们激励用户向我们的 [流动池](https://88mph.app/deposits)存款的机制主要是，根据[发行率](https://88mph.app/docs/mph/#issuance-rate-multiplier)向用户分发更多MPH币作为报酬。正在孵化的社区治理机制将负责监控产品协议参数，并且决定作为报酬的MPH代币来源：重新发放或者从[governance treasury](https://88mph.app/docs/mph/#governance-treasury)中获取。因此，MPH持有者有权决定如何刺激总锁仓价值增量，通过这种方式，[MPH stakers](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing)也能够获得更多收益，也不会迅速削弱早期投资者的决策权。
-Therefore, you can conclude that there isn't a maximum supply but the total supply is in the hand of the MPH holders.
-至此，你可以了解MPH币的总供应量并没有一个极值，但持仓用户对供应量有决策权。
-You should also note that the MPH [circulating supply](https://academy.binance.com/en/glossary/circulating-supply) is a more accurate metric to access the current value of the protocol. The reason behind this statement is that the majority of the MPH distributed to lenders must be paid back when the lenders withdraw their principal. They are then sent to the [governance treasury](https://88mph.app/docs/mph/#governance-treasury). In other words, a big percentage of the MPH supply will end up in the governance treasury at any point in the future, excluding this supply from the open market and the [MPH staking](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing) system. More about the benefits of such design could be found on [Placeholder.vc](https://www.placeholder.vc/blog/2020/9/17/stop-burning-tokens-buyback-and-make-instead).
-还须注意的是，MPH [循环供应](https://academy.binance.com/en/glossary/circulating-supply)是获取平台当前价值更精确的指标。原因是，在用户收回本金时，分发给用户的部分MPH代币须被返还。这些MPH将存入[社区治理经费](https://88mph.app/docs/mph/#governance-treasury)中。换言之，这部分MPH不会流入开放市场和[MPH锁仓挖矿](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing)体系，而将成为社区治理经费的一部分。
-## Depositor rewards
+
+MPH代币总供应量取决于总锁仓价值（Total Value Locked）的增长。当前，我们激励用户向我们的 [流动池子](https://88mph.app/deposits)存款的机制主要是，根据[发行率](https://88mph.app/docs/mph/#issuance-rate-multiplier)向用户发放更多MPH币作为奖励。正在孵化的社区共治机制将负责监控各项平台参数，并对作为奖励的MPH代币来源有决定权：重新铸币发放或者从[社区治理经费](https://88mph.app/docs/mph/#governance-treasury)中获取。因此，MPH持有者有权决定如何刺激总锁仓价值增长，通过这种方式，[MPH锁仓挖矿用户](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing)能够获得更多收益，也不会过分削弱早期用户的决策权。
+
+至此，可以说MPH币的总供应量并没有极值，但MPH持仓用户对供应量有决策权。
+
+另外，MPH 的[循环供应](https://academy.binance.com/en/glossary/circulating-supply)也可作为衡量此平台投资价值的一个重要指标。原因在于，在用户收回本金时，存款第一周分发给用户的MPH代币中有一部分须被返还。这些MPH将存入[社区治理经费](https://88mph.app/docs/mph/#governance-treasury)中。换言之，这部分MPH不会流入开放市场和[MPH锁仓挖矿](https://88mph.app/docs/mph/#mph-staking-rewards-revenues-sharing)体系，而将成为社区治理经费的一部分，详见[Placeholder.vc](https://www.placeholder.vc/blog/2020/9/17/stop-burning-tokens-buyback-and-make-instead)。
+
 ## 存款人奖励
-When a user makes a deposit in an 88mph pool, they will receive newly-minted MPH tokens proportional to \(depositAmount \times depositPeriod\), which will be continuously vested over 7 days. They can then stake this MPH in the MPH rewards pool to earn their share of protocol fees and yield-farming rewards. When the deposit is mature and the user wants to withdraw it, they will have to pay back a proportion of the MPH reward (currently between 30% and 90%). These MPH tokens will be sent to the 88mph governance treasury, where MPH holders can vote on how to spend them.
+
 用户在88mph流动池中存入一笔资金后，将获得一定数额的新铸MPH币作为回报，数额与\(存款数额\*存款时间\)成正比，持续发放七日以上。接下来，用户可以将这些MPH币锁入MPH收益池中，赚取服务费或者耕作收益。当存期满想要取出资金时，用户须将一定比例（当前在30%-90%之间浮动）的MPH收益返还给社区。这部分MPH币将成为88mph社区治理经费，由MPH持仓用户投票决定如何使用它们。
 This distribution model ensures that existing users will have an amplified influence in the governance process and income sharing, which aligns the interest of the protocol with the interest of the users, rather than the interest of speculators.
 这种分发模型能有效确保老用户在社区治理和收益分配过程中的话语权，整个社区收益与用户收益息息相关，形成良性循环，降低投机者使坏的机会。
