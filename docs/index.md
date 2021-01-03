@@ -2,7 +2,7 @@
 
 <span style="display:block;text-align:center">![88mph-logo](img/88mph-logo-dark.png)</span>
 
-这是关于[88mph](https://88mph.app)的技术资料，这是一个按固定利率计算年收益的协平台。
+这是关于[88mph](https://88mph.app)的技术资料，这是一个按固定利率计算年收益的平台。
 
 你可以在[GitHub](https://github.com/88mphapp)找到88mph的源代码。
 
