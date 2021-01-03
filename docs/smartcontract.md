@@ -17,7 +17,7 @@
 - `MPHToken`:MPH ERC-20代币合约。 
 - `MPHMinter`:负责铸币，从储户和债券购买者处收回MPH代币。
 - `Dumper`: 负责累加社区服务费及在88mph流动池子里产生的挖矿收益并将收益换成DAI。
-- `Rewards`:MPH锁仓挖矿奖励合约，负责分配平台服务费和挖矿收益。
+- `Rewards`:MPH锁仓挖矿奖励合约，负责分配社区服务费和挖矿奖励。
 
 ## 应用程序接口索引
 
@@ -37,16 +37,18 @@
 负责为来访者取出一笔单一存款。来访者必须拥有ID为`depositID`存款的NFT凭证。
 
 - `depositID`: `deposits`数组中要提取的存款的指数加1。
+- `fundingID`: 在`fundingList`数组中为利息赤字供资的债券买家的指数加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到该ID。
 
 ###### 注意事项
 
-如果88mph流动池在子在基础交易市场中无法产生足额利息来支付承诺给用户的利息，并且也没人买债券来清偿赤字，那么该取款则有可能失败。这是在88mph平台上投资的主要风险。
+如果88mph流动池子在基础交易市场中无法产生足额利息来支付承诺给用户的利息，并且也没人买债券来清偿赤字，那么该取款则有可能失败。这是在88mph平台上投资的主要风险。
 
 ##### `function earlyWithdraw(uint256 depositID) external`
 
 负责未到期的提前取款事宜。来访者必须拥有ID为`depositID`的存款的NFT凭证。
 
 - `depositID`: `deposits`数组中要提取的存款的指数加1。
+- `fundingID`: 在`fundingList`数组中为利息赤字供资的债券买家的指数加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到该ID。
 
 ##### `function multiDeposit(uint256[] calldata amountList, uint256[] calldata maturationTimestampList) external`
 
@@ -64,6 +66,7 @@
 负责为来访者取出多笔存款。来访者必须拥有ID为`depositIDList`中的存款NFT。
 
 - `depositIDList`：`deposits`数组中要提取的各笔存款的指数加1。
+- `fundingID`: 在`fundingList`数组中为利息赤字供资的债券买家的指数加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到该ID。
 
 ###### 输入大小限制
 
@@ -78,6 +81,7 @@
 负责在存期未满时为来访者取出多笔存款。来访者必须拥有ID为`depositIDList`中的存款NFT。
 
 - `depositIDList`: `deposits`数组中要提取的各笔存款的指数加1。
+- `fundingIDList`: 在`fundingList`数组中为多笔利息赤字供资的债券买家的指数加1。可以使用我们的[subgraph](https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph)找到ID。
 
 ###### 输入大小限制
 
