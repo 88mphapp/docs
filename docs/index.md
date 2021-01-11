@@ -1,6 +1,6 @@
 # Introduction
 
-<span style="display:block;text-align:center">![88mph-logo](img/88mph-logo-dark.png)</span>
+<span style="display:block;margin:0 auto;width:300px">![88mph-logo](img/88mph-logo-dark.png)</span>
 
 This is the documentation of [88mph](https://88mph.app), a fixed-rate yield-generation protocol.
 
