@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Bacon Labs">
+  <link rel="canonical" href="https://88mph.app/docs/integration-guide/">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Integration guide - 88mph Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Integration guide";
+    var mkdocs_page_input_path = "integration-guide.md";
+    var mkdocs_page_url = "/docs/integration-guide/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> 88mph Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../howitworks/">How 88mph works</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../mph/">MPH tokenomics</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Integration guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#smart-contract">Smart contract</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-deposit">Creating a deposit</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#withdrawing-a-deposit">Withdrawing a deposit</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example_1">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#withdrawing-vested-mph-rewards">Withdrawing vested MPH rewards</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example_2">Example</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#buying-a-floating-rate-bond">Buying a floating-rate bond</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example_3">Example</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rest-api">REST API</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example-response">Example response</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../addresses/">Smart contract addresses</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../smartcontract/">Smart contract reference</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">88mph Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Integration guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/88mphapp/docs/edit/master/docs/integration-guide.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="integration-guide">Integration guide<a class="headerlink" href="#integration-guide" title="Permanent link">#</a></h1>
+<h2 id="smart-contract">Smart contract<a class="headerlink" href="#smart-contract" title="Permanent link">#</a></h2>
+<p>To interact with an 88mph pool, you will mostly call the pool's DInterest contract. You can find the source code <a href="https://github.com/88mphapp/88mph-contracts/blob/master/contracts/DInterest.sol">on our GitHub</a>, and the reference is available <a href="/smartcontract/#dinterest">here</a>.</p>
+<h3 id="creating-a-deposit">Creating a deposit<a class="headerlink" href="#creating-a-deposit" title="Permanent link">#</a></h3>
+<p>Creating a deposit has two steps:</p>
+<ol>
+<li>Give ERC-20 approval to the DInterest contract, the amount of which is at least the deposit amount.</li>
+<li>Call <code>DInterest::deposit()</code> or <code>DInterest::multiDeposit()</code>.</li>
+</ol>
+<p>Once an account makes a deposit, the account will also receive vested MPH rewards. Check <a href="#withdrawing-vested-mph-rewards">Withdrawing vested MPH rewards</a> to learn more.</p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">#</a></h4>
+<pre><code class="language-solidity">DInterest pool = DInterest(0x35966201A7724b952455B73A36C8846D8745218e); // Compound DAI pool
+ERC20 token = ERC20(0x6b175474e89094c44da98b954eedeac495271d0f); // DAI
+uint256 depositAmount = 3 * 10 ** 18; // 3 DAI
+uint256 maturationTimestamp = now + 365 days;
+
+require(token.approve(address(pool), depositAmount));
+pool.deposit(depositAmount, maturationTimestamp);
+
+uint256 depositID = pool.depositsLength(); // the ID of the deposit
+</code></pre>
+<h3 id="withdrawing-a-deposit">Withdrawing a deposit<a class="headerlink" href="#withdrawing-a-deposit" title="Permanent link">#</a></h3>
+<p>Withdrawing a deposit has the following steps:</p>
+<ol>
+<li>Approve the MPH payback amount to the MPHMinter contract.</li>
+<li>Call <code>DInterest::withdraw()</code> or <code>DInterest::multiWithdraw()</code>. If you're withdrawing a deposit before its maturation date, call <code>DInterest::earlyWithdraw()</code> or <code>DInterest::multiEarlyWithdraw()</code>.</li>
+</ol>
+<p>To withdraw a deposit whose debt was funded by a floating-rate bond, you need to input the ID of the floating-rate bond as an argument (fundingID). To obtain this value, you can use our <a href="https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph">GraphQL API</a>.</p>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">#</a></h4>
+<p>Let's say we want to withdraw a deposit from the Compound DAI pool with ID 10. First, we make a GraphQL query to obtain the fundingID.</p>
+<pre><code class="language-graphql">{
+  deposits(where: {pool: &quot;0x35966201a7724b952455b73a36c8846d8745218e&quot;, nftID: 10}) {
+    fundingID
+  }
+}
+</code></pre>
+<p>The response would be</p>
+<pre><code class="language-graphql">{
+  &quot;data&quot;: {
+    &quot;deposits&quot;: [
+      {
+        &quot;fundingID&quot;: &quot;4&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+<p>Now we know the fundingID is 4. Next, we make the smart contract call.</p>
+<pre><code class="language-solidity">MPHToken mph = MPHToken(0x8888801af4d980682e47f1a9036e589479e835c5);
+DInterest pool = DInterest(0x35966201A7724b952455B73A36C8846D8745218e); // Compound DAI pool
+MPHMinter mphMinter = pool.mphMinter();
+uint256 depositID = 10;
+uint256 fundingID = 4;
+
+mph.approve(address(mphMinter), uint256(-1)); // Infinite approval
+pool.withdraw(depositID, fundingID);
+</code></pre>
+<h3 id="withdrawing-vested-mph-rewards">Withdrawing vested MPH rewards<a class="headerlink" href="#withdrawing-vested-mph-rewards" title="Permanent link">#</a></h3>
+<p>Each deposit (and in the future, floating-rate bond) yields vested MPH rewards to the user. This is handled by the <a href="https://github.com/88mphapp/88mph-contracts/blob/master/contracts/rewards/Vesting.sol">Vesting contract</a>. The vesting is linear and continuous, and is done over 7 days (though this value may change).</p>
+<p>In order to withdraw vested MPH, you need to call <code>Vesting::withdrawVested(address account, uint256 vestIdx)</code>. You need the index of a vesting object, <code>vestIdx</code>, in order to withdraw the MPH. There are several important things to note:</p>
+<ol>
+<li>A vesting object's index is not tied to the ID of a deposit or a floating-rate bond. Vesting MPH to another account is something that anyone can do by calling <code>Vesting::vest()</code>, which would increment the highest vest index. Even though it is likely the case that <code>vestIdx = depositID - 1</code> (<code>vestIdx</code> is 0-indexed while <code>depositID</code> is 1-indexed), there should be contingencies for handling cases where this is not true. For instance, you can have a function that allows you to call <code>withdrawVested()</code> with an arbitrary <code>vestIdx</code> and update whatever state you need updated.</li>
+<li><code>withdrawVested()</code> can be used to withdraw vested MPH to any account by any account, so it is possible (but not likely) that someone would call it for your contract and vest MPH to it. You would want a function that can deal with this situation, which should have the same logic as a function that handles MPH that's mistakenly sent to your contract.</li>
+</ol>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">#</a></h4>
+<pre><code class="language-solidity">Vesting vesting = Vesting(0x8943eb8F104bCf826910e7d2f4D59edfe018e0e7);
+address account = ...;
+uint256 vestIdx = ...;
+
+vesting.withdrawVested(account, vestIdx);
+</code></pre>
+<h3 id="buying-a-floating-rate-bond">Buying a floating-rate bond<a class="headerlink" href="#buying-a-floating-rate-bond" title="Permanent link">#</a></h3>
+<p>Buying a floating-rate bond takes two steps:</p>
+<ol>
+<li>Approve deposit tokens to the DInterest contract, the amount of which should be at least the cost of the bond.</li>
+<li>Call <code>DInterest::fundAll()</code> or <code>DInterest::fundMultiple()</code> to either fund all deposits with outstanding debt or a subset of them.</li>
+</ol>
+<p>Computing the exact cost of the bond is slightly complicated if you call <code>fundMultiple()</code>, if you're interested you can checkout the source code <a href="https://github.com/88mphapp/88mph-contracts/blob/787e9571951840897fe4b36f9bf3d4b493620c5b/contracts/DInterest.sol#L292">here</a>. If you call <code>fundAll()</code> then the cost is just <code>DInterest::surplus()</code>. It is usually okay to just give infinite approval to save gas and simplify the code.</p>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">#</a></h4>
+<pre><code class="language-solidity">DInterest pool = DInterest(0x35966201A7724b952455B73A36C8846D8745218e); // Compound DAI pool
+ERC20 token = ERC20(0x6b175474e89094c44da98b954eedeac495271d0f); // DAI
+
+require(token.approve(address(pool), uint256(-1))); // Infinite approval
+pool.fundAll();
+
+uint256 fundingID = pool.fundingListLength(); // The ID of the floating-rate bond object
+</code></pre>
+<h2 id="rest-api">REST API<a class="headerlink" href="#rest-api" title="Permanent link">#</a></h2>
+<p>We offer a REST API for fetching basic info of 88mph pools. The endpoint is at <a href="https://api.88mph.app/pools">https://api.88mph.app/pools</a>. The only supported method is GET.</p>
+<h3 id="example-response">Example response<a class="headerlink" href="#example-response" title="Permanent link">#</a></h3>
+<pre><code class="language-json">[
+  {
+    &quot;address&quot;: &quot;0xb1abaac351e06d40441cf2cd97f6f0098e6473f2&quot;, // the pool's DInterest contract
+    &quot;token&quot;: &quot;0x5b5cfe992adac0c9d48e05854b2d91c73a003858&quot;, // the deposit token address
+    &quot;tokenSymbol&quot;: &quot;CRV:HUSD&quot;, // the deposit token symbol
+    &quot;protocol&quot;: &quot;Harvest&quot;, // the pool's underlying lending protocol (e.g. Compound, Aave, Harvest)
+    &quot;oneYearInterestRate&quot;: &quot;3.6621277863445296&quot;, // the fixed interest rate, in percent (e.g. 3.6 means 3.6%)
+    &quot;mphAPY&quot;: &quot;60.8988450243270707253&quot;, // the MPH APY after deducting the payback amount, in percent
+    &quot;totalValueLockedInToken&quot;: &quot;1548211.678555032702255836&quot;, // the TVL denominated in the deposit token
+    &quot;totalValueLockedInUSD&quot;: &quot;1548211.678555032702255836&quot; // the TVL denominated in USD
+  },
+  ...
+]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../addresses/" class="btn btn-neutral float-right" title="Smart contract addresses">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../mph/" class="btn btn-neutral" title="MPH tokenomics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/88mphapp/docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../mph/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../addresses/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
