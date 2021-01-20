@@ -113,14 +113,15 @@ Returns info about a user deposit. The owner of the deposit is whichever Ethereu
 
 ###### Returns
 
-- `amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
-- `maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
-- `interestOwed`: The initial debt caused by the deposit.
-- `initialMoneyMarketIncomeIndex`: The value returned by [`moneyMarket.incomeIndex()`](#function-incomeIndex-external-returns-uint256) at the time of deposit.
-- `active`: `true` if the deposit hasn't been withdrawn, `false` otherwise.
-- `finalSurplusIsNegative`: `true` if at the time of withdrawal the deposit had a negative surplus, `false` otherwise.
-- `finalSurplusAmount`: The amount of surplus/debt of the deposit at the time of withdrawal.
-- `mintMPHAmount`: The amount of MPH tokens minted to the user at the time of deposit.
+- `uint256 amount`: The amount of the deposit, in stablecoins. Scaled by \(10^{stablecoinDecimals}\).
+- `uint256 maturationTimestamp`: The Unix timestamp at and after which the deposit will be able to be withdrawn. In seconds.
+- `uint256 interestOwed`: The initial debt caused by the deposit.
+- `uint256 initialMoneyMarketIncomeIndex`: The value returned by [`moneyMarket.incomeIndex()`](#function-incomeIndex-external-returns-uint256) at the time of deposit.
+- `bool active`: `true` if the deposit hasn't been withdrawn, `false` otherwise.
+- `bool finalSurplusIsNegative`: `true` if at the time of withdrawal the deposit had a negative surplus, `false` otherwise.
+- `uint256 finalSurplusAmount`: The amount of surplus/debt of the deposit at the time of withdrawal.
+- `uint256 mintMPHAmount`: The amount of MPH tokens minted to the user at the time of deposit.
+- `uint256 depositTimestamp`: Unix timestamp at time of deposit, in seconds.
 
 ##### `function getFunding(uint256 fundingID) external view returns (uint256 fromDepositID, uint256 toDepositID, uint256 recordedFundedDepositAmount, uint256 recordedMoneyMarketIncomeIndex)`
 
