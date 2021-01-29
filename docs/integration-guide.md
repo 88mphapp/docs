@@ -2,7 +2,7 @@
 
 ## Smart contract
 
-To interact with an 88mph pool, you will mostly call the pool's DInterest contract. You can find the source code [on our GitHub](https://github.com/88mphapp/88mph-contracts/blob/master/contracts/DInterest.sol), and the reference is available [here](/smartcontract/#dinterest).
+To interact with an 88mph pool, you will mostly call the pool's DInterest contract. You can find the source code [on our GitHub](https://github.com/88mphapp/88mph-contracts/blob/master/contracts/DInterest.sol), and the reference is available [here](https://88mph.app/docs/smartcontract/#dinterest).
 
 ### Creating a deposit
 
