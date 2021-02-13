@@ -170,7 +170,7 @@
 <li><code>fundingID</code>: The index of the funding object that funded the deposit's debt in the <code>fundingList</code> array plus 1. It can be found using our <a href="https://thegraph.com/explorer/subgraph/bacon-labs/eighty-eight-mph">subgraph</a>.</li>
 </ul>
 <h6 id="important-note">Important note<a class="headerlink" href="#important-note" title="Permanent link">#</a></h6>
-<p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.</p>
+<p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the promised fixed-rate interest, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.</p>
 <h5 id="function-earlywithdrawuint256-depositid-uint256-fundingid-external"><code>function earlyWithdraw(uint256 depositID, uint256 fundingID) external</code><a class="headerlink" href="#function-earlywithdrawuint256-depositid-uint256-fundingid-external" title="Permanent link">#</a></h5>
 <p>Withdraws a single deposit for the caller, before the maturation timestamp. The caller must own the deposit NFT with ID <code>depositID</code>.</p>
 <ul>
@@ -194,7 +194,7 @@
 <h6 id="input-size-limit_1">Input size limit<a class="headerlink" href="#input-size-limit_1" title="Permanent link">#</a></h6>
 <p>The maximum recommended number of deposits is 100.</p>
 <h6 id="important-note_1">Important note<a class="headerlink" href="#important-note_1" title="Permanent link">#</a></h6>
-<p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference. This is the main risk of depositing into 88mph. If withdrawing actually fails, <code>earlyWithdraw()</code> may be called to get back the deposit minus the upfront interest and fee.</p>
+<p>Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the promised fixed-rate interest, and no one has funded the difference. This is the main risk of depositing into 88mph.</p>
 <h5 id="function-multiearlywithdrawuint256-calldata-depositidlist-uint256-calldata-fundingidlist-external"><code>function multiEarlyWithdraw(uint256[] calldata depositIDList, uint256[] calldata fundingIDList) external</code><a class="headerlink" href="#function-multiearlywithdrawuint256-calldata-depositidlist-uint256-calldata-fundingidlist-external" title="Permanent link">#</a></h5>
 <p>Withdraws multiple deposits for the caller, before the maturation timestamp. The caller must own the deposit NFTs with IDs in <code>depositIDList</code>.</p>
 <ul>
