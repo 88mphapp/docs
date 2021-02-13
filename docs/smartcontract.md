@@ -41,7 +41,7 @@ Withdraws a single deposit for the caller. The caller must own the deposit NFT w
 
 ###### Important note
 
-Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.
+Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the promised fixed-rate interest, and no one has funded the difference by buying bonds. This is the main risk of depositing into 88mph.
 
 ##### `function earlyWithdraw(uint256 depositID, uint256 fundingID) external`
 
@@ -74,7 +74,7 @@ The maximum recommended number of deposits is 100.
 
 ###### Important note
 
-Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the deficit incurred by the original upfront interest payout, and no one has funded the difference. This is the main risk of depositing into 88mph. If withdrawing actually fails, `earlyWithdraw()` may be called to get back the deposit minus the upfront interest and fee.
+Withdrawing may fail if the 88mph pool has failed to generate enough interest from the underlying money market to cover the promised fixed-rate interest, and no one has funded the difference. This is the main risk of depositing into 88mph.
 
 ##### `function multiEarlyWithdraw(uint256[] calldata depositIDList, uint256[] calldata fundingIDList) external`
 
