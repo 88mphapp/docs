@@ -19,6 +19,7 @@
 - MPHIssuanceModel01 deployed at [0x36aD542daDc22078511D64b98aFF818aBD1AC713](https://etherscan.io/address/0x36aD542daDc22078511D64b98aFF818aBD1AC713)
 - Vesting deployed at [0x8943eb8F104bCf826910e7d2f4D59edfe018e0e7](https://etherscan.io/address/0x8943eb8F104bCf826910e7d2f4D59edfe018e0e7)
 - MPHMinter deployed at [0x03577A2151A10675a9689190fE5D331Ee7ff2517](https://etherscan.io/address/0x03577A2151A10675a9689190fE5D331Ee7ff2517)
+- NFTFactory deployed at [0x95816Fa25D54061086d4f4aD9a48FDBe9068E541](https://etherscan.io/address/0x95816Fa25D54061086d4f4aD9a48FDBe9068E541)
 
 ## cDAI
 
@@ -124,3 +125,11 @@
 - 88mph Harvest crvOBTC Pool Deposit deployed at 0xa8c9A5F33b0E0bD0c46025282E8B2E9C49781a18
 - 88mph Harvest crvOBTC Pool Bond deployed at 0xD158c1d945F504b53951CA71E743F5965a6E5d26
 - 88mph Harvest crvOBTC Pool deployed at 0xD4837145c7e13D580904e8431cfD481f9794fC41
+
+## yEarn aLINK
+
+- YVaultMarket deployed at 0x08cC88c379911BF6d778081a078B48bd7035fB70
+- EMAOracle deployed at 0xb0f8FAF712fEa939CAE787DB171661C08DCfA7d8
+- 88mph yaLINK Pool Deposit deployed at 0xF0b7DE03134857391d8D43Ed48e20EDF21461097
+- 88mph yaLINK Pool Bond deployed at 0x140716901E0e17E0EE80daf560A21F85E09A3A16
+- 88mph yaLINK Pool deployed at 0x904F81EFF3c35877865810CCA9a63f2D9cB7D4DD
