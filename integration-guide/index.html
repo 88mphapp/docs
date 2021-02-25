@@ -88,6 +88,16 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#zero-coupon-bonds">Zero coupon bonds</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#minting-a-zero-coupon-bond">Minting a zero coupon bond</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#redeeming-zero-coupon-bonds-for-their-face-value">Redeeming zero coupon bonds for their face value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#withdrawing-an-underlying-deposit">Withdrawing an underlying deposit</a>
+    </li>
+        </ul>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#rest-api">REST API</a>
@@ -228,6 +238,36 @@ require(token.approve(address(pool), uint256(-1))); // Infinite approval
 pool.fundAll();
 
 uint256 fundingID = pool.fundingListLength(); // The ID of the floating-rate bond object
+</code></pre>
+<h3 id="zero-coupon-bonds">Zero coupon bonds<a class="headerlink" href="#zero-coupon-bonds" title="Permanent link">#</a></h3>
+<h4 id="minting-a-zero-coupon-bond">Minting a zero coupon bond<a class="headerlink" href="#minting-a-zero-coupon-bond" title="Permanent link">#</a></h4>
+<pre><code class="language-solidity">ZeroCouponBond bond = ZeroCouponBond(0x6d6d543fe4e2f62dd0c9d4a79e18f0b43ddd12ea);
+DInterest pool = bond.pool();
+NFT depositNFT = pool.depositNFT();
+MPHToken mph = MPHToken(0x8888801aF4d980682e47f1A9036e589479e835C5);
+
+DInterest.Deposit memory depositStruct = pool.getDeposit(nftID);
+uint256 nftID = 3;
+string memory fractionalDepositName = &quot;Fractional deposit&quot;;
+string memory fractionalDepositSymbol = &quot;FRD&quot;;
+
+mph.increaseAllowance(address(bond), depositStruct.mintMPHAmount);
+depositNFT.setApprovalForAll(address(bond), true);
+(uint256 zeroCouponBondsAmount, FractionalDeposit fractionalDeposit) = bond.mintWithDepositNFT(nftID, fractionalDepositName, fractionalDepositSymbol);
+</code></pre>
+<h4 id="redeeming-zero-coupon-bonds-for-their-face-value">Redeeming zero coupon bonds for their face value<a class="headerlink" href="#redeeming-zero-coupon-bonds-for-their-face-value" title="Permanent link">#</a></h4>
+<pre><code class="language-solidity">ZeroCouponBond bond = ZeroCouponBond(0x6d6d543fe4e2f62dd0c9d4a79e18f0b43ddd12ea);
+
+uint256 redeemAmount = 30 * (10 ** 18);
+uint256 actualRedeemedAmount = bond.redeemStablecoin(redeemAmount);
+</code></pre>
+<h4 id="withdrawing-an-underlying-deposit">Withdrawing an underlying deposit<a class="headerlink" href="#withdrawing-an-underlying-deposit" title="Permanent link">#</a></h4>
+<pre><code class="language-solidity">ZeroCouponBond bond = ZeroCouponBond(0x6d6d543fe4e2f62dd0c9d4a79e18f0b43ddd12ea);
+
+address fractionalDepositAddress = 0x1234...;
+uint256 fundingID = 3; // the ID of the floating-rate bond that funded the deposit's fixed-rate interest
+
+bond.redeemFractionalDepositShares(fractionalDepositAddress, fundingID);
 </code></pre>
 <h2 id="rest-api">REST API<a class="headerlink" href="#rest-api" title="Permanent link">#</a></h2>
 <p>We offer a REST API for fetching basic info of 88mph pools. The endpoint is at <a href="https://api.88mph.app/pools">https://api.88mph.app/pools</a>. The only supported method is GET.</p>
