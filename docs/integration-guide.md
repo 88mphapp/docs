@@ -115,6 +115,46 @@ pool.fundAll();
 uint256 fundingID = pool.fundingListLength(); // The ID of the floating-rate bond object
 ```
 
+### Zero coupon bonds
+
+#### Minting a zero coupon bond
+
+```solidity
+ZeroCouponBond bond = ZeroCouponBond(0x6d6d543fe4e2f62dd0c9d4a79e18f0b43ddd12ea);
+DInterest pool = bond.pool();
+NFT depositNFT = pool.depositNFT();
+MPHToken mph = MPHToken(0x8888801aF4d980682e47f1A9036e589479e835C5);
+
+DInterest.Deposit memory depositStruct = pool.getDeposit(nftID);
+uint256 nftID = 3;
+string memory fractionalDepositName = "Fractional deposit";
+string memory fractionalDepositSymbol = "FRD";
+
+mph.increaseAllowance(address(bond), depositStruct.mintMPHAmount);
+depositNFT.setApprovalForAll(address(bond), true);
+(uint256 zeroCouponBondsAmount, FractionalDeposit fractionalDeposit) = bond.mintWithDepositNFT(nftID, fractionalDepositName, fractionalDepositSymbol);
+```
+
+#### Redeeming zero coupon bonds for their face value
+
+```solidity
+ZeroCouponBond bond = ZeroCouponBond(0x6d6d543fe4e2f62dd0c9d4a79e18f0b43ddd12ea);
+
+uint256 redeemAmount = 30 * (10 ** 18);
+uint256 actualRedeemedAmount = bond.redeemStablecoin(redeemAmount);
+```
+
+#### Withdrawing an underlying deposit
+
+```solidity
+ZeroCouponBond bond = ZeroCouponBond(0x6d6d543fe4e2f62dd0c9d4a79e18f0b43ddd12ea);
+
+address fractionalDepositAddress = 0x1234...;
+uint256 fundingID = 3; // the ID of the floating-rate bond that funded the deposit's fixed-rate interest
+
+bond.redeemFractionalDepositShares(fractionalDepositAddress, fundingID);
+```
+
 ## REST API
 
 We offer a REST API for fetching basic info of 88mph pools. The endpoint is at [https://api.88mph.app/pools](https://api.88mph.app/pools). The only supported method is GET.
