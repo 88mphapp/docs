@@ -24,11 +24,13 @@ You should also note that the MPH [circulating supply](https://academy.binance.c
 
 ## Depositor rewards
 
-When a user makes a deposit in an 88mph pool, they will receive newly-minted MPH tokens proportional to \(depositAmount \times depositPeriod\), which will be continuously vested over 7 days. They can then stake this MPH in the MPH rewards pool to earn their share of protocol fees and yield-farming rewards. When the deposit is mature and the user wants to withdraw it, they will have to pay back a proportion of the MPH reward (currently between 30% and 90%). These MPH tokens will be sent to the 88mph governance treasury, where MPH holders can vote on how to spend them.
+When a user makes a deposit in an 88mph pool, they will receive newly-minted MPH tokens proportional to \(depositAmount \times depositPeriod\), which will be continuously vested over 270 days (the next release will make it equal to the deposit maturation). They can then stake this MPH in the MPH rewards pool to earn their share of protocol fees and yield-farming rewards. When the deposit is mature and the user wants to withdraw it, they will have to pay back a proportion of the MPH reward (currently between 30% and 90%). These MPH tokens will be sent to the 88mph governance treasury, where MPH holders can vote on how to spend them.
 
 This distribution model ensures that existing users will have an amplified influence in the governance process and income sharing, which aligns the interest of the protocol with the interest of the users, rather than the interest of speculators.
 
 ## Bond buyer rewards
+
+*Currently not activated*
 
 When a user buys a floating-rate bond, they will receive newly-minted MPH tokens when one of the deposits whose debt the bond funded is withdrawn, proportional to \(depositAmount \times timeFromBondPurchaseToDepositMaturation\). They can then stake this MPH in the MPH rewards pool to earn their share of protocol fees and yield-farming rewards.
 
