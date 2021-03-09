@@ -34,7 +34,7 @@ Not only do floating-rate bonds significantly reduces the risk of depositing int
 
 At the moment, 88mph uses a linear model for determining the fixed interest rate offered to depositors. 88mph keeps track of the Exponential Moving Average (EMA) of the underlying yield protocol's APY over roughly a monthly window, and offers 75% of the EMA as the fixed rate.
 
-We have plans to implement more sophisticated interest rate models in the future that take into account paramters such as the pool surplus/debt, floating-rate volatility, pool total deposit, and so on.
+We have plans to implement more sophisticated interest rate models in the future that take into account parameters such as the pool surplus/debt, floating-rate volatility, pool total deposit, and so on.
 
 ## Towards structured products
 

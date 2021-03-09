@@ -2,7 +2,7 @@
 
 ## Initial issuance
 
-An initial supply of 88,000 MPH were minted and will be distributed via liquidity mining.
+An initial supply of 88,000 MPH was minted and will be distributed via liquidity mining.
 
 It begins at 12:00 pm PT 11/20/2020 and lasts 14 days.
 
