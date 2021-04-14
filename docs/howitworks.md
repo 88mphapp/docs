@@ -27,7 +27,7 @@ Simply doing the above, though, wouldn't help if the floating rate APY drops to 
 
 This is why 88mph also offers another mechanism called **floating-rate bonds**. 
 
-The Floating-Rate Bond (FRB) allows users to fund the debt created by the users' deposits, referred as Fixed-Interest Rate Bonds (FIRB). The debt is the fixed-interest rate promised to FIRB holders — the depositors. You will earn the variable rate offered by the underlying protocol (Compound, Aave, etc.) on the debt funded + the FIRB initial deposit.
+The Floating-Rate Bond (FRB) allows users to fund the debt created by the users' deposits, referred as Fixed-Interest Rate Bonds (FIRB). The debt is the fixed-interest rate promised to FIRB holders. You will earn the variable rate offered by the underlying protocol (Compound, Aave, etc.) on the debt funded + the FIRB initial deposit.
 
 As the FIRB takes 50% of the floating-rate’s 30-day exponential moving average from the underlying money market protocol like Compound, Aave, if this protocol’s floating-interest rate doesn't drop by more than 50%, as a floating-rate bond holder, you will be in profit. This profit can increase if the underlying variable-rate interest increases.
 
