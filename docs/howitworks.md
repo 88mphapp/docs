@@ -13,7 +13,7 @@ At first glance, this may seem extremely problematic. To begin with, how is this
 These objections are resolved by 88mph via different **derisking mechanisms** described below.
 
 - Pooling the deposits together.
-- Selling floating-rate bonds.
+- Funding the system's debt via the floating-rate bonds.
 
 ## How would pooling help?
 
@@ -25,7 +25,7 @@ Pooling deposits means putting the deposited tokens into a single pool, from whi
 
 Simply doing the above, though, would make 88mph a fairly risky product: if the floating rate APY drops to a very low value and stays there for a long time, deposits made when the floating rate was still high would not by themselves generate enough interest to cover the original interest payouts, and neither would the deposits made after the rates dropped help with this situation. This would cause a pool-wide insolvency event.
 
-This is why 88mph also offers another mechanic called **floating-rate bonds**. 
+This is why 88mph also offers another mechanism called **floating-rate bonds**. 
 
 The Floating-Rate Bond (FRB) allows users to fund the debt created by the users' deposits, referred as Fixed-Interest Rate Bonds (FIRB). The debt is the fixed-interest rate promised to FIRB holders — the depositors. You will earn the variable rate offered by the underlying protocol (Compound, Aave, etc.) on the debt funded + the FIRB initial deposit.
 
