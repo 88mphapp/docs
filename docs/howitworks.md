@@ -25,7 +25,7 @@ Pooling deposits means putting the deposited tokens into a single pool, from whi
 
 Simply doing the above, though, wouldn't help if the floating rate APY drops to a very low value and stays there for a long time. The deposits made when the floating rate was still high would not by themselves generate enough interest to cover the original interest payouts, and neither would the deposits made after the rates dropped help with this situation. This would cause a pool-wide insolvency event.
 
-This is why 88mph also offers another mechanism called **floating-rate bonds**. 
+This is why 88mph also offers another mechanism: **floating-rate bonds**. 
 
 The Floating-Rate Bond (FRB) allows users to fund the debt created by the users' deposits, referred as Fixed-Interest Rate Bonds (FIRB). The debt is the fixed-interest rate promised to FIRB holders. You will earn the variable rate offered by the underlying protocol (Compound, Aave, etc.) on the debt funded + the FIRB initial deposit.
 
