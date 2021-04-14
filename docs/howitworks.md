@@ -23,7 +23,7 @@ Pooling deposits means putting the deposited tokens into a single pool, from whi
 
 ##  2. How would floating-rate bonds help?
 
-Simply doing the above, though, would make 88mph a fairly risky product: if the floating rate APY drops to a very low value and stays there for a long time, deposits made when the floating rate was still high would not by themselves generate enough interest to cover the original interest payouts, and neither would the deposits made after the rates dropped help with this situation. This would cause a pool-wide insolvency event.
+Simply doing the above, though, wouldn't help if the floating rate APY drops to a very low value and stays there for a long time, deposits made when the floating rate was still high would not by themselves generate enough interest to cover the original interest payouts, and neither would the deposits made after the rates dropped help with this situation. This would cause a pool-wide insolvency event.
 
 This is why 88mph also offers another mechanism called **floating-rate bonds**. 
 
