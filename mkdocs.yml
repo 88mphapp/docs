@@ -12,9 +12,6 @@ markdown_extensions:
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 nav:
-  - Introduction: index.md
-  - How 88mph works: howitworks.md
-  - MPH tokenomics: mph.md
   - Integration guide: integration-guide.md
   - Smart contract addresses: addresses.md
   - Smart contract reference: smartcontract.md
